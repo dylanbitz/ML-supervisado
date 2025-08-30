@@ -6,7 +6,7 @@ app = Flask(__name__)
 def index():
     link_estilos = "./static/styles.css" #tienen que modificar el último nombre styles.css a su propio archivo css
     return render_template(
-        "base.html",
+        "index.html",
         link=link_estilos,
         titulo="ML Supervisado",
         presentation="Bienvenidos a mi página web",
