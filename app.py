@@ -16,7 +16,7 @@ def index():
 @app.route('/caso1-')
 def caso1():
     return render_template(
-        "caso1-",
+        "caso1-.html",
     )
 
 if __name__ == '__main__':
