@@ -4,12 +4,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    link_estilos = "href=./static/styles.css" #tienen que modificar el último nombre styles.css a su propio archivo css
+    link_estilos = "./static/styles.css" #tienen que modificar el último nombre styles.css a su propio archivo css
     return render_template(
         "base.html",
         link=link_estilos,
+        titulo="ML Supervisado",
         presentation="Bienvenidos a mi página web",
-        titulo_actividad="WebApp Flask",
     )
 
 @app.route('/caso1-')
