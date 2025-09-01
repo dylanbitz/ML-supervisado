@@ -56,16 +56,48 @@ nav a
 .introduccion p
 {
     margin: 0;
-    padding: 5px;
-    padding-left: 40px;
-    padding-right: 20px;
+    padding: 10px 40px 10px 40px;
+    margin-bottom: 20px;
     background-color: #DAD2BC;
 
+}
+
+.p2-intro,
+.p8-intro
+{
+    text-align: right;
+}
+
+.p3-intro.p3-intro,
+.p4-intro.p4-intro,
+.p5-intro.p5-intro,
+.p6-intro.p6-intro
+{
+    margin: 0;
+    background-color: #F5F1ED;
+}
+
+.p4-intro.p4-intro,
+.p5-intro.p5-intro
+{
+    padding-left: 60px;
+}
+
+.introduccion ul
+{
+    margin-top: 0;
+    padding-left: 80px;
+    padding-right: 30px;
 }
 
 .referencias
 {
     padding: 0px 20px 0px 20px;
+}
+
+.referencias ul
+{
+    list-style: decimal;
 }
 
 footer
@@ -75,4 +107,11 @@ footer
     flex: 1;
     font-weight: bold;
     background-color: #A99985;
+}
+
+footer p
+{
+    margin: 0;
+    padding: 10px 5px;
+    text-align: center;
 }
