@@ -5,16 +5,52 @@
     <nav>
         <img src="../static/images/ML-act128.png" alt="logo-actividad">
         <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Caso 1</a></li>
-            <li><a href="#">Caso 2</a></li>
-            <li><a href="#">Caso 3</a></li>
-            <li><a href="#">Caso 4</a></li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/caso1-">Caso 1</a></li>
+            <li><a href="/caso2-">Caso 2</a></li>
+            <li><a href="/caso3-">Caso 3</a></li>
+            <li><a href="/caso4-">Caso 4</a></li>
         </ul>
     </nav>
 </header>
 <main>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam inventore magnam accusantium nisi nobis excepturi, placeat incidunt, in assumenda ut velit quod consequuntur corporis iusto ex mollitia neque asperiores! Est.</p>
+    <div class="introduccion">
+        <h1 class="titulos">Machine Learning Supervisado</h1> 
+        <p>
+            el aprendizaje supervisado es una técnica para deducir una función a partir de datos de formación. 
+            Los datos de formación consisten de pares de objetos (normalmente vectores): una componente del par son los datos de entrada y el otro, 
+            los resultados deseados. La salida de la función puede ser un valor numérico (como en los problemas de regresión) o una etiqueta de 
+            clase (como en los de clasificación).
+        </p>
+        <h2 class="titulos">¿Cómo funciona?</h2>
+        <p>
+            Supervised learning uses a labeled training dataset to understand the relationships between inputs and output data. 
+            Data scientists manually create training datasets containing input data along with the corresponding labels. 
+            Supervised learning trains the model to apply the correct outputs to new input data in real-world use cases. 
+        </p>
+        <h2 class="titulos">Diferencia entre Supervisado y no supervisado</h2>
+        <p>
+            Supervised learning relies on labeled datasets, where each input is paired with a corresponding output label.
+        </p>
+        <p>
+            Then machine tries to find structure in the data. It might group similar data points together or identify trends. At last it provides insights, 
+            such as clusters of similar data or patterns that were not obvious before.
+        </p>
+    </div>
+    <div class="referencias">
+        <h1>Referencias</h1>
+        <ul>
+            <li>chatgpt</li>
+            <li>https://es.wikipedia.org/wiki/Aprendizaje_supervisado</li>
+            <li>https://www.ibm.com/think/topics/supervised-learning</li>
+            <li>https://www.oracle.com/latam/artificial-intelligence/machine-learning/supervised-learning/</li>
+            <li>https://cloud.google.com/discover/what-is-supervised-learning</li>
+            <li>https://www.geeksforgeeks.org/machine-learning/difference-between-supervised-and-unsupervised-learning/</li>
+        </ul>
+    </div>
 </main>
+<footer>
+    <p>Universidad de Cundinamarca | Machine Learning | Dylan Bielostozky, Mayra Caipe, Pedro Casas, Miguel González</p>
+</footer>
 
 {% endblock %}
