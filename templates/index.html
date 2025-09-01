@@ -16,36 +16,62 @@
 <main>
     <div class="introduccion">
         <h1 class="titulos">Machine Learning Supervisado</h1> 
-        <p>
-            el aprendizaje supervisado es una técnica para deducir una función a partir de datos de formación. 
-            Los datos de formación consisten de pares de objetos (normalmente vectores): una componente del par son los datos de entrada y el otro, 
-            los resultados deseados. La salida de la función puede ser un valor numérico (como en los problemas de regresión) o una etiqueta de 
-            clase (como en los de clasificación).
+        <p class="p1-intro">
+            Google Cloud define el machine learning supervisado como “una categoría del aprendizaje automático que utiliza conjuntos de datos etiquetados para entrenar 
+            algoritmos con el objetivo de predecir resultados y reconocer patrones” (s.f.). Estos modelos nos permiten hacer predicciones precisas y es gracias a eso 
+            que se usan en varios sectores, como salud, marketing o finanzas.
+        </p>
+        <p class="p2-intro">
+            ”La salida de la función puede ser un valor numérico (como en los problemas de regresión) o una etiqueta de clase (como en los de clasificación).” (Wikipedia, s.f.). 
+            IBM (s.f.) también define al aprendizaje supervisado como un entrenamiento con datos para entender la relación entre su entrada (input) y su salida (output), 
+            esto quiere decir que hablamos de funciones aplicados con un algoritmo que procesa estos datos convirtiéndolos en un resultado deseado.
+        </p>
+        <h2 class="titulos">Categorías</h2>
+        <p class="p3-intro">
+            Generalmente estos modelos de aprendizaje se dividen en dos categorías:
+        </p>
+        <p class="p4-intro">
+            <b>Clasificación:</b> “Los algoritmos de clasificación se usan para agrupar datos mediante la predicción de una etiqueta categórica o una variable de salida en 
+            función de los datos de entrada. La clasificación se utiliza cuando las variables de salida son categóricas, es decir, cuando hay dos o más clases.” 
+            (Google Cloud, s.f.).
+        </p>
+        <p class="p5-intro">
+            <b>Regresión:</b> “los algoritmos de regresión utilizan conjuntos de datos de entrenamiento etiquetados para identificar una relación que se ajuste mejor entre 
+            entradas y salidas, de modo que se puedan hacer predicciones matemáticas para nuevas entradas.” (Oracle, 2024).
         </p>
         <h2 class="titulos">¿Cómo funciona?</h2>
-        <p>
-            Supervised learning uses a labeled training dataset to understand the relationships between inputs and output data. 
-            Data scientists manually create training datasets containing input data along with the corresponding labels. 
-            Supervised learning trains the model to apply the correct outputs to new input data in real-world use cases. 
+        <p class="p6-intro">
+            IBM indica el proceso que por lo general se sigue en un modelo de aprendizaje supervisado:
         </p>
+        <ul>
+            <li>Identificar el tipo de dato que será utilizado para entrenar el modelo</li>
+            <li>Acomodar los datos y etiquetarlos de manera que sean “datos etiquetados”, además de eso tienen que ser datos no sesgados para evitar problemas de rendimiento y resultados.</li>
+            <li>Estos datos deben estar divididos en 3: datos de entrenamiento, validación y evaluación.</li>
+            <li>Escoger un algoritmo de machine learning para crear el modelo</li>
+            <li>Entrenar el modelo con el algoritmo escogido</li>
+            <li>Ir validando y evaluando el modelo</li>
+            <li>Asegurar un mantenimiento constante sobre su rendimiento y precisión de los resultados</li>
+        </ul>
         <h2 class="titulos">Diferencia entre Supervisado y no supervisado</h2>
-        <p>
-            Supervised learning relies on labeled datasets, where each input is paired with a corresponding output label.
+        <p class="p7-intro">
+            La mejor forma de remarcar las diferencias entre ambas, es la manera en la que estas se entrenan, como se dijo antes, el modelo supervisado 
+            busca producir resultados que el entrenador ya sabe, son patrones ya conocidos, GeekForGeeks (2025) menciona que en cambio, los no supervisados 
+            funciona de manera que los datos no están etiquetados, es decir, son datos de los que no le damos un output a validar, contrario al supervisado
         </p>
-        <p>
-            Then machine tries to find structure in the data. It might group similar data points together or identify trends. At last it provides insights, 
-            such as clusters of similar data or patterns that were not obvious before.
+        <p class="p8-intro">
+            El objetivo del no supervisado es encontrar patrones que no son observables a simple vista, diferente al  supervisado en el que ya conocemos su output y 
+            validamos los resultados del modelo en base a los datos que ya sabemos.
         </p>
     </div>
     <div class="referencias">
         <h1>Referencias</h1>
         <ul>
-            <li>chatgpt</li>
-            <li>https://es.wikipedia.org/wiki/Aprendizaje_supervisado</li>
-            <li>https://www.ibm.com/think/topics/supervised-learning</li>
-            <li>https://www.oracle.com/latam/artificial-intelligence/machine-learning/supervised-learning/</li>
-            <li>https://cloud.google.com/discover/what-is-supervised-learning</li>
-            <li>https://www.geeksforgeeks.org/machine-learning/difference-between-supervised-and-unsupervised-learning/</li>
+            <li>OpenAI. (2023). ChatGPT (versión Agosto 31) [Large language model]. <a href="https://chat.openai.com/chat">https://chat.openai.com/chat</a></li>
+            <li>Wikipedia. (10 de mayo de 2025). Aprendizaje supervisado. <a href="https://es.wikipedia.org/wiki/Aprendizaje_supervisado">https://es.wikipedia.org/wiki/Aprendizaje_supervisado</a></li>
+            <li>IBM. (28 de diciembre de 2024). What is supervised learning?. <a href="https://www.ibm.com/think/topics/supervised-learning">https://www.ibm.com/think/topics/supervised-learning</a></li>
+            <li>Chen, M. (17 de julio de 2024). Oracle. ¿Qué es el aprendizaje supervisado?. <a href="https://www.oracle.com/latam/artificial-intelligence/machine-learning/supervised-learning/">https://www.oracle.com/latam/artificial-intelligence/machine-learning/supervised-learning/</a></li>
+            <li>Google Cloud. (s.f.). ¿Qué es el aprendizaje supervisado?. <a href="https://cloud.google.com/discover/what-is-supervised-learning">https://cloud.google.com/discover/what-is-supervised-learning</a></li>
+            <li>GeekForGeeks. (11 de julio de 2025). Difference between Supervised and Unsupervised Learning. <a href="https://www.geeksforgeeks.org/machine-learning/difference-between-supervised-and-unsupervised-learning/">https://www.geeksforgeeks.org/machine-learning/difference-between-supervised-and-unsupervised-learning/</a></li>
         </ul>
     </div>
 </main>
