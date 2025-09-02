@@ -22,7 +22,7 @@ def caso1():
         
     )
 
-@app.get('/caso2-')
+@app.get('/caso2-IndTexti')
 def caso2():
     link_estilos = "../static/css/caso2-.css" #tienen que modificar el último nombre styles.css a su propio archivo css
     return render_template(
