@@ -12,12 +12,13 @@ def index():
         
     )
 
-@app.get('/caso1-')
+@app.get('/caso1-indmusical')
 def caso1():
     link_estilos = "../static/css/caso1-.css" #tienen que modificar el último nombre styles.css a su propio archivo css
     return render_template(
-        "caso1-.html",
+        "caso1-indmusical.html",
         link=link_estilos,
+        titulo="Caso 1 Industria Musical"
         
     )
 
