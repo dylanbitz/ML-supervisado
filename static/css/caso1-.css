@@ -44,3 +44,49 @@ nav a
     text-decoration: none;
     color: inherit;
 }
+
+.titulos
+{
+    padding: 20px 20px 0px 20px;
+}
+
+.introduccion p
+{
+    margin: 0;
+    padding: 10px 40px 10px 40px;
+    margin-bottom: 20px;
+    background-color: #DAD2BC;
+}
+
+.introduccion ul
+{
+    margin-top: 0;
+    padding-left: 80px;
+    padding-right: 30px;
+}
+
+.referencias
+{
+    padding: 0px 20px 0px 20px;
+}
+
+.referencias ul
+{
+    list-style: decimal;
+}
+
+footer
+{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    font-weight: bold;
+    background-color: #A99985;
+}
+
+footer p
+{
+    margin: 0;
+    padding: 10px 5px;
+    text-align: center;
+}
