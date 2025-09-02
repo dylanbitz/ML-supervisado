@@ -1,46 +1,130 @@
-body
-{
-    color: #252323;
-    display: flex;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tipografía general */
+body {
+  color: #252323;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  background-color: #f4f6f8;
+  padding: 20px;
+}
+
+/* Encabezado, contenido y pie de página */
+header,
+main,
+footer {
+  background: #F5F1ED;
+}
+
+/* Navegación (conservada como pediste) */
+nav,
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul {
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin: 2px;
+  padding: 5px 10px;
+  background-color: #70798C;
+  transition: background-color 0.5s ease;
+  border-radius: 3px;
+}
+
+nav li:hover {
+  background-color: #A99985;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Títulos en negro y negrita */
+h1, h2, h3, h4, h5, h6 {
+  color: #000000;
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+  margin-bottom: 20px;
+}
+
+/* Contenedores de contenido */
+.caso2-contenido,
+.P2-intro,
+.P3-funcion,
+.P4-Beneficios {
+  margin-bottom: 40px;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Párrafos */
+p {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #444;
+}
+
+/* Imágenes incrustadas */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 25px auto;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Clases específicas para imágenes */
+.img1-caso2,
+.img2-caso2,
+.img3-caso2,
+.img4-caso2 {
+  width: 60%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  nav ul {
     flex-direction: column;
+    gap: 10px;
+  }
 
-}
-
-header, main, footer
-{
-    background: #F5F1ED;
-}
-
-nav, 
-nav ul
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-nav ul
-{
-    padding: 0;
-    list-style: none;
-}
-
-nav li
-{
-    margin: 2px;
-    padding: 5px 10px;
-    background-color: #70798C;
-    transition: background-color 0.5s ease;
-    border-radius: 3px;
-}
-
-nav li:hover
-{
-    background-color: #A99985;
-}
-
-nav a
-{
-    text-decoration: none;
-    color: inherit;
+  .img1-caso2,
+  .img2-caso2,
+  .img3-caso2,
+  .img4-caso2 {
+    width: 80%;
+  }
 }
