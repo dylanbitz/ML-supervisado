@@ -1,16 +1,109 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <header>
-        <nav>
-            <img src="../static/images/ML-act128.png" alt="logo-actividad">
-            <ul>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/caso1-indmusical">Caso 1</a></li>
-                <li><a href="/caso2-">Caso 2</a></li>
-                <li><a href="/caso3-">Caso 3</a></li>
-                <li><a href="/caso4-">Caso 4</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <img src="../static/images/ML-act128.png" alt="logo-actividad">
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/caso1-indmusical">Caso 1</a></li>
+            <li><a href="/caso2-IndTexti">Caso 2</a></li>
+            <li><a href="/caso3-">Caso 3</a></li>
+            <li><a href="/caso4-">Caso 4</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="introduccion">
+        <h1 class="titulos">Caso 1 - Industria Musical</h1>
+        <p>
+            En la industria musical una de las cosas que más suele hacer resonancia con el uso del Machine Learning son las 
+            recomendaciones personalizadas para diferentes aspectos, desde recomendaciones de nuevas canciones, hasta el uso de etiquetado 
+            automático de canciones o para descubrir nuevos talentos.
+        </p>
+        <p>
+            Por ejemplo, los sistemas de recomendación personalizada es algo que viene desde los años 60, “La idea de utilizar una computadora para 
+            filtrar un flujo de información entrante según las preferencias de un usuario se remonta a la década de 1960, cuando se publicaron las 
+            primeras ideas bajo el término "diseminación selectiva de información" ” (Communications ACM, 2016). “Estos fueron los cimientos del 
+            <b>filtrado basado en contenido</b> (<i>content-based filtering</i>)”  (Communications ACM, 2016), estos sistemas se relacionarían 
+            bastante con modelos de aprendizaje supervisado.
+        </p>
+        <p>
+            “En 1979, Elaine Rich desarrolló un sistema llamado <b>Grundy</b>, el cual recomendaba libros preguntando a los usuarios sobre sus 
+            preferencias y clasificándolos en “estereotipos” (perfiles), para luego sugerir libros apropiados. Fue una de las primeras 
+            implementaciones formales de recomendación personalizada“ (Communications ACM, 2016).
+        </p>
+        <p>
+            En 2006, Netflix lanzó una competencia abierta al público en el que buscaba que diseñaran un algoritmo de recomendación, utilizando 
+            temas como el <i>matrix factorization</i> y <i>ensemble learning</i>.
+        </p>
+
+        <h2 class="titulos">Echo Nest - Spotify</h2>
+        <p>
+            Siguiendo con el tema de las recomendaciones, Spotify adquirió en 2014 a <b>The Echo Nest</b>, una empresa especializada en análisis musical, 
+            para alimentar sus sistemas de recomendación. Spotify buscaba implementar un sistema de recomendación y llevar la ventaja en términos de 
+            innovación frente a las otras alternativas que había en ese entonces, Wired (2014) menciona que la empresa Echo Nest utilizan modelos 
+            supervisados para analizar hábitos de escucha, crear perfiles de usuario y generar playlists como "Discover Weekly" o "Especialmente para ti".
+        </p>
+        <p>
+            Echo Nest utilizó varias técnicas en la implementación de su sistema y fue evolucionando con el tiempo, entre ellas el machine learning, 
+            en donde el enfoque principal estaba en aprender patrones basados en lo que escuchaba el usuario, partiendo de datos etiquetados. 
+            Real Dope Design (2024) menciona algunas de ellas:
+        </p>
+        <ul>
+            <li><b>Filtrado Colaborativo:</b> Tomaban listas de reproducción, buscaban similitudes entre canciones “mediante métricas como la distancia euclidiana” logrando predecir canciones parecidas que fueran de interés</li>
+            <li><b>Filtrado Basado en Contenido:</b> Analizaban el audio propiamente de las canciones (tempo, instrumentación, etc)</li>
+            <li><b>Procesamiento de Lenguaje Natural (NLP):</b> A textos de blogs, reseñas o artículos para analizar palabras clave sobre el estilo y contexto cultural de las canciones para compararlas con otras con parámetros parecidos</li>
+        </ul>
+        <p>
+            Esto por supuesto, ha dado beneficios a Spotify al hacer su producto más innovador y buscando siempre ampliar la experiencia musical de sus usuarios, 
+            no caer en la repetición constante y ayudar a nuevos artistas a que sus canciones puedan llegar a más personas.
+        </p>
+
+        <h2 class="titulos">Pandora — Music Genome Project</h2>
+        <p>
+            Otro proyecto interesante que se realizó sobre sistemas de recomendación fue hecho por Pandora Media, “El Music Genome Project 
+            (The Genome Project) es un proyecto de análisis musical que busca "capturar la esencia de la música en su nivel más fundamental" 
+            utilizando varios atributos para describir las canciones y matemáticas para conectarlas en un mapa interactivo.” (Wikipedia, s.f.)
+        </p>
+        <p>
+            El Music Genome Project asigna entre <b>300 y 450 atributos</b>, llamados “genes”, para caracterizar cada canción y luego utiliza 
+            algoritmos para encontrar otras que compartan esas características (Wikipedia).
+        </p>
+        <p>
+            Pandora lanzó un servicio de radio por internet que ofrecía “estaciones personalizadas”. A medida que los oyentes daban “thumbs up” o 
+            “thumbs down”, el sistema ajustaba las recomendaciones usando aprendizaje supervisado basado en atributos musicales y el feedback del 
+            usuario (IEEE Spectrum, s.f.).
+        </p>
+        <p>
+            Pandora fue pionera en llevar un sistema híbrido (contenido musical detallado + aprendizaje supervisado) al consumidor. 
+            Su enfoque ha inspirado muchos desarrollos posteriores y consolidó el modelo de “radio personalizada” basado en atributos musicales y feedback directo.
+        </p>
+
+        <h2 class="titulos">Funcionamiento</h2>
+        <p>
+            Prey, R (2018) En su investigación habla sobre cómo funciona la radio de Pandora:
+        </p>
+        <ul>
+            <li><b>Espacio vectorial:</b> Cada canción queda representada como un punto en un espacio multidimensional, con dimensiones correspondientes a sus atributos (genes).</li>
+            <li><b>Medición de similitud:</b> Cuando eliges una canción para crear una estación, la plataforma calcula distancias en este espacio para encontrar los temas "más cercanos". Estos son los que suenan “similarmente similar” a la canción semilla.</li>
+            <li><b>Retroalimentación del usuario:</b> Si das “thumbs up”, el sistema aumenta el peso de los atributos que te gustaron. Con un “thumbs down”, se disminuyen o eliminan ciertos genes en futuras recomendaciones. Esto ajusta la personalización en tiempo real.</li>
+        </ul>
+    </div>
+    <div class="referencias">
+        <h1>Referencias</h1>
+        <ul>
+            <li>Communications ACM. (2016). Recommender Systems 2. <a href="https://cacm.acm.org/research/recommender-systems-2/">https://cacm.acm.org/research/recommender-systems-2/</a></li>
+            <li>Wikipedia. (s.f.). The Echo Nest. <a href="https://en.wikipedia.org/wiki/The_Echo_Nest">https://en.wikipedia.org/wiki/The_Echo_Nest</a></li>
+            <li>Wired. (2014). Echo Nest. <a href="https://www.wired.com/story/echo-nest/">https://www.wired.com/story/echo-nest/</a></li>
+            <li>Real Dope Design. (2024). Spotify’s balancing act between personalized playlists and music variety. <a href="https://www.realdopedesign.com/insight/spotifys-balancing-act-between-personalized-playlists-and-music-variety">https://www.realdopedesign.com/insight/spotifys-balancing-act-between-personalized-playlists-and-music-variety</a></li>
+            <li>Prey R. (2018). Nothing personal: algorithmic individuation on music streaming platforms. Media Cult Soc. 40(7):1086-1100. doi: 10.1177/0163443717745147.</li>
+            <li>Wikipedia. (s.f.). Music Genome Project. <a href="https://en.wikipedia.org/wiki/Music_Genome_Project">https://en.wikipedia.org/wiki/Music_Genome_Project</a></li>
+            <li>IEEE Spectrum. (s.f.). Pandora’s Music Genome Project. <a href="https://spectrum.ieee.org/pandora-music-genome-project">https://spectrum.ieee.org/pandora-music-genome-project</a></li>
+        </ul>
+    </div>
+</main>
+<footer>
+    <p>Universidad de Cundinamarca | Machine Learning | Dylan Bielostozky</p>
+</footer>
 {% endblock %}
