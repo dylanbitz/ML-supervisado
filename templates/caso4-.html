@@ -1,5 +1,95 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <!--Empieza a modificar desde acá-->
+<header>
+    <nav>
+        <img src="../static/images/ML-act128.png" alt="logo-actividad" class="logo">
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/caso1-indmusical">Caso 1</a></li>
+            <li><a href="/caso2-IndTexti">Caso 2</a></li>
+            <li><a href="/caso3-indFinci">Caso 3</a></li>
+            <li><a href="/caso4-indAutomotriz" class="active">Caso 4</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1>Caso 4: Industria Automotriz</h1>
+    <section class="contenido">
+        <h2>Mantenimiento Predictivo en Vehículos</h2>
+
+        <h3>El Problema</h3>
+        <p>
+            Las empresas automotrices y de transporte enfrentan el reto de mantener sus vehículos en óptimas condiciones 
+            para evitar fallos inesperados que generen retrasos, accidentes o elevados costos de reparación. 
+            Los mantenimientos programados por kilometraje no siempre previenen fallas críticas, y revisiones manuales frecuentes 
+            no son eficientes para flotas grandes.
+        </p>
+        <img src="https://www.ulibertadores.edu.co/wp-content/uploads/Que-revisar-de-tu-carro-antes-de-viajar.jpg" alt="Problemas en mantenimiento" class="imagen">
+
+        <h3>¿Cómo ayuda el Machine Learning?</h3>
+        <p>
+            El Machine Learning supervisado permite <strong>predecir fallas antes de que ocurran</strong>. 
+            Utilizando datos históricos de los vehículos (kilometraje, vibraciones, temperaturas del motor, consumo de combustible, historial de fallas), 
+            el algoritmo aprende a identificar patrones que anticipan problemas mecánicos. 
+            Así, el sistema puede alertar al personal de mantenimiento para intervenir antes de que ocurra una avería.
+        </p>
+
+        <h3>Algoritmos más utilizados</h3>
+        <ul>
+            <li><strong>Regresión lineal y polinómica:</strong> para estimar el desgaste de componentes.</li>
+            <li><strong>Árboles de decisión y Random Forest:</strong> para clasificar el nivel de riesgo de una falla.</li>
+            <li><strong>Redes neuronales supervisadas:</strong> para analizar grandes volúmenes de datos complejos y anticipar comportamientos anormales.</li>
+        </ul>
+
+        <h3>Beneficios Obtenidos</h3>
+        <p>
+            - Reducción de costos de mantenimiento correctivo.<br>
+            - Menor tiempo de inactividad de los vehículos.<br>
+            - Mayor seguridad al evitar fallas inesperadas.<br>
+            - Optimización de recursos y mayor vida útil de los componentes.
+        </p>
+        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a" alt="Beneficios" class="imagen">
+
+        <h3>Ejemplo Real</h3>
+        <p>
+            Empresas como <strong>Tesla</strong> y <strong>Volvo</strong> han implementado mantenimiento predictivo en sus vehículos. 
+            Tesla, por ejemplo, recopila datos en tiempo real desde sensores de cada automóvil y ajusta automáticamente los planes de mantenimiento. 
+            En flotas de transporte, empresas como <strong>UPS</strong> y <strong>DHL</strong> han logrado disminuir más del 20% en fallos críticos al aplicar modelos supervisados de predicción.
+        </p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwmgI6Hb75WdOCmRsSkUvxDJiqEXMk7n6yHQ&s" alt="Ejemplo de mantenimiento predictivo" class="imagen">
+
+        <h3>Referencias</h3>
+
+<p>
+    Theissler, A., Pérez-Velázquez, J., Kettelgerdes, M., & Elger, G. (2021). Predictive maintenance enabled by machine learning: Use cases and challenges in the automotive industry. 
+    <em>Reliability Engineering & System Safety, 215</em>, 107864. 
+    <a href="https://doi.org/10.1016/j.ress.2021.107864" target="_blank">https://doi.org/10.1016/j.ress.2021.107864</a>
+</p>
+
+<p>
+    Arena, F., Collotta, M., Luca, L., Ruggieri, M., & Termine, F. G. (2022). Predictive Maintenance in the Automotive Sector: A Literature Review. 
+    <em>Mathematical and Computational Applications, 27</em>(1), 2. 
+    <a href="https://doi.org/10.3390/mca27010002" target="_blank">https://doi.org/10.3390/mca27010002</a>
+</p>
+
+<p>
+    Mahale, Y. (2025). Enhancing predictive maintenance in automotive industry. 
+    <em>SN Applied Sciences.</em> 
+    <a href="https://doi.org/10.1007/s42452-025-06827-3" target="_blank">https://doi.org/10.1007/s42452-025-06827-3</a>
+</p>
+
+<p>
+    Ravi Aravind, C. V., & Surabhi, M. D. (2022). Machine Learning Applications in Predictive Maintenance for Vehicles: Case Studies. 
+    <em>International Journal of Engineering and Computer Science, 11</em>(11), 25628–25640. 
+    <a href="https://doi.org/10.18535/ijecs/v11i11.4707" target="_blank">https://doi.org/10.18535/ijecs/v11i11.4707</a>
+</p>
+
+<p>
+    Shah, C. V. (2024). Machine Learning Algorithms for Predictive Maintenance in Autonomous Vehicles. 
+    <em>International Journal of Engineering and Computer Science, 13</em>(1), 26015–26032. 
+    <a href="https://doi.org/10.18535/ijecs/v13i01.4786" target="_blank">https://doi.org/10.18535/ijecs/v13i01.4786</a>
+</p>
+
 {% endblock %}
