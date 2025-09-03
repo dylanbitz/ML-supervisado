@@ -46,11 +46,30 @@ nav a
     color: inherit;
 }
 
+.UniLogo
+{
+    margin-left: 10px;
+}
+
 /*Pueden copiar hasta acá para tener la misma barra de navegación*/
 
 .titulos
 {
     padding: 20px 20px 0px 20px;
+}
+
+.introduccion
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.titulos
+{
+    width: 100vw;
+    padding: 0;
+    padding-left: 25px;
 }
 
 .introduccion p
@@ -62,6 +81,49 @@ nav a
 
 }
 
+.p1-intro.p1-intro
+{
+    margin: 0;
+    width: 600px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.p2-intro.p2-intro
+{
+    margin: 0;
+    width: 500px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.D03
+{
+    position: relative;
+    bottom: 50px;
+    height: 10px;
+}
+
+.p4-intro.p4-intro
+{
+    margin: 0;
+    margin-right: 50px;
+    width: 650px;
+    background-color: #F5F1ED;
+
+}
+.p5-intro.p5-intro
+{
+    margin: 0;
+    margin-right: 50px;
+    width: 650px;
+    background-color: #F5F1ED;
+}
+
+
 .p2-intro,
 .p8-intro
 {
@@ -69,8 +131,6 @@ nav a
 }
 
 .p3-intro.p3-intro,
-.p4-intro.p4-intro,
-.p5-intro.p5-intro,
 .p6-intro.p6-intro
 {
     margin: 0;
@@ -112,6 +172,6 @@ footer
 footer p
 {
     margin: 0;
-    padding: 10px 5px;
+    padding: 30px 5px;
     text-align: center;
 }

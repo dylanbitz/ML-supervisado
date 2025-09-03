@@ -45,9 +45,20 @@ nav a
     color: inherit;
 }
 
+.UniLogo
+{
+    margin-left: 10px;
+}
+
 .titulos
 {
     padding: 20px 20px 0px 20px;
+}
+
+.introduccion
+{
+    display: flex;
+    flex-direction: column;
 }
 
 .introduccion p
@@ -87,6 +98,6 @@ footer
 footer p
 {
     margin: 0;
-    padding: 10px 5px;
+    padding: 30px 5px;
     text-align: center;
 }
