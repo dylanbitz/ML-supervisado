@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href={{ link_estilos }}>
-    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="{{ link }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/ML-act1080.png') }}">
+    <title>{{ titulo }}</title>
 </head>
 <body>
-    <h1>Hola</h1>
+    {% block body%}
+    {% endblock %}
 </body>
 </html>

@@ -1,0 +1,177 @@
+/*Si quieren tener la misma barra de navegación copien de aquí hasta el otro comentario*/
+body
+{
+    color: #252323;
+    display: flex;
+    flex-direction: column;
+
+}
+
+header, main, footer
+{
+    background: #F5F1ED;
+}
+
+nav, 
+nav ul
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul
+{
+    padding: 0;
+    list-style: none;
+}
+
+nav li
+{
+    margin: 2px;
+    padding: 5px 10px;
+    background-color: #70798C;
+    transition: background-color 0.5s ease;
+    border-radius: 3px;
+}
+
+nav li:hover
+{
+    background-color: #A99985;
+}
+
+nav a
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+.UniLogo
+{
+    margin-left: 10px;
+}
+
+/*Pueden copiar hasta acá para tener la misma barra de navegación*/
+
+.titulos
+{
+    padding: 20px 20px 0px 20px;
+}
+
+.introduccion
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.titulos
+{
+    width: 100vw;
+    padding: 0;
+    padding-left: 25px;
+}
+
+.introduccion p
+{
+    margin: 0;
+    padding: 10px 40px 10px 40px;
+    margin-bottom: 20px;
+    background-color: #DAD2BC;
+
+}
+
+.p1-intro.p1-intro
+{
+    margin: 0;
+    width: 600px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.p2-intro.p2-intro
+{
+    margin: 0;
+    width: 500px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.D03
+{
+    position: relative;
+    bottom: 50px;
+    height: 10px;
+}
+
+.p4-intro.p4-intro
+{
+    margin: 0;
+    margin-right: 50px;
+    width: 650px;
+    background-color: #F5F1ED;
+
+}
+.p5-intro.p5-intro
+{
+    margin: 0;
+    margin-right: 50px;
+    width: 650px;
+    background-color: #F5F1ED;
+}
+
+
+.p2-intro,
+.p8-intro
+{
+    text-align: right;
+}
+
+.p3-intro.p3-intro,
+.p6-intro.p6-intro
+{
+    margin: 0;
+    background-color: #F5F1ED;
+}
+
+.p4-intro.p4-intro,
+.p5-intro.p5-intro
+{
+    padding-left: 60px;
+}
+
+.introduccion ul
+{
+    margin-top: 0;
+    padding-left: 80px;
+    padding-right: 30px;
+}
+
+.referencias
+{
+    padding: 0px 20px 0px 20px;
+}
+
+.referencias ul
+{
+    list-style: decimal;
+}
+
+footer
+{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    font-weight: bold;
+    background-color: #A99985;
+}
+
+footer p
+{
+    margin: 0;
+    padding: 30px 5px;
+    text-align: center;
+}

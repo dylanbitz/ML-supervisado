@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <header>
+        <nav>
+            <img src="../static/images/ML-act128.png" alt="logo-actividad">
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/caso1-indmusical">Caso 1</a></li>
+                <li><a href="/caso2-IndTexti">Caso 2</a></li>
+                <li><a href="/caso3-indFinci">Caso 3</a></li>
+                <li><a href="/caso4-">Caso 4</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Caso 3: Industria Financiera</h1>
+    
+    <main>
+        <section class="contenido">
+            <h2>Detección de Fraude en Tarjetas de Crédito</h2>
+
+            <h3>El Problema</h3>
+            <p>
+                Cada día, millones de personas en el mundo utilizan sus tarjetas de crédito y débito para realizar compras en línea o en establecimientos físicos. 
+                Sin embargo, junto con el crecimiento del comercio electrónico también han aumentado los intentos de fraude. 
+                Los bancos y entidades financieras enfrentan el gran reto de diferenciar entre una transacción legítima y otra sospechosa en cuestión de segundos.  
+                Por ejemplo, imagina que una persona suele comprar en su ciudad por montos pequeños y de repente aparece una transacción en otro país con un valor elevado. 
+                ¿Es realmente el cliente o alguien robó sus datos? Detectar este tipo de anomalías manualmente es imposible debido al volumen de operaciones. 
+                Aquí es donde entra en juego el Machine Learning Supervisado.
+                <img src="https://raw.githubusercontent.com/dylanbitz/ML-supervisado/f3d0a3d8f3c073878e7d216ad5c45ca108f37e22/static/images/Fraud.png" 
+     alt="Fraude en tarjetas" class="C3 imagen">
+            </p>
+
+            <h3>¿Cómo ayuda el Machine Learning?</h3>
+            <p>
+                Los modelos supervisados se entrenan con grandes cantidades de datos históricos de transacciones, que ya han sido clasificadas como <em>fraudulentas</em> o <em>legítimas</em>. 
+                Gracias a este entrenamiento, el algoritmo aprende patrones: por ejemplo, compras repetidas en lugares inusuales, montos fuera de lo común, o intentos múltiples de pago en pocos segundos. 
+                Una vez entrenado, el modelo puede recibir una nueva transacción y decidir de forma automática si parece confiable o si debería generar una alerta.
+            </p>
+
+            <h3>Algoritmos Más Usados</h3>
+            <p>
+                Entre los algoritmos más utilizados se encuentran:
+            </p>
+            <ul>
+                <li><strong>Árboles de decisión y Random Forest:</strong> útiles para clasificar transacciones en categorías claras como "fraude" o "no fraude".</li>
+                <li><strong>Regresión logística:</strong> muy efectiva para problemas binarios donde la respuesta puede ser sí/no, fraude/no fraude.</li>
+                <li><strong>Redes neuronales supervisadas:</strong> permiten detectar patrones más complejos en grandes volúmenes de datos, simulando un razonamiento similar al humano.</li>
+            </ul>
+
+            <h3>Beneficios Obtenidos</h3>
+            <p>
+                El impacto de aplicar Machine Learning en este ámbito es enorme. 
+                Hoy en día, las entidades financieras logran detectar fraudes en milisegundos y detenerlos antes de que se concreten. 
+                Esto no solo reduce las pérdidas económicas de bancos y clientes, sino que también aumenta la confianza de las personas en los sistemas de pago digitales.  
+                Además, los algoritmos permiten automatizar un proceso que sería imposible para un equipo humano: analizar millones de operaciones al mismo tiempo sin perder precisión.
+                <img src="https://raw.githubusercontent.com/dylanbitz/ML-supervisado/f3d0a3d8f3c073878e7d216ad5c45ca108f37e22/static/images/Detection.png" 
+     alt="Detección de fraude con IA" class="C3 imagen">
+            </p>
+
+            <h3>Ejemplo Real</h3>
+            <p>
+                Empresas como <strong>MasterCard</strong> y <strong>American Express</strong> han implementado modelos supervisados que analizan transacciones en tiempo real. 
+                Cuando el sistema detecta una operación sospechosa —como un pago inusual en otro país o compras consecutivas de gran valor—, puede generar una alerta inmediata e incluso bloquear temporalmente la tarjeta hasta confirmar la operación con el cliente.  
+                Esta tecnología ha permitido reducir significativamente los fraudes en el sector y proteger tanto a consumidores como a empresas.
+                <img src="https://raw.githubusercontent.com/dylanbitz/ML-supervisado/f3d0a3d8f3c073878e7d216ad5c45ca108f37e22/static/images/Alert.png" 
+     alt="Alerta de fraude en tarjetas" class="C3 imagen">
+                </p>
+
+            <h3>Referencia</h3>
+            <p>
+                Bhattacharyya, S., Jha, S., Tharakunnel, K., & Westland, J. C. (2011). 
+                <em>Data mining for credit card fraud: A comparative study</em>. 
+                Decision Support Systems, 50(3), 602-613. https://doi.org/10.1016/j.dss.2010.08.008
+            </p>
+        </section>
+    </main>
+</body>
+</html>
+
+
+
+
+
+{% endblock %}

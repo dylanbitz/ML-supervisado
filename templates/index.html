@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block body %}
+<header>
+    <nav>
+        <img src="../static/images/ML-act128.png" alt="logo-actividad">
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/caso1-indmusical">Caso 1</a></li>
+            <li><a href="/caso2-IndTexti">Caso 2</a></li>
+            <li><a href="/caso3-">Caso 3</a></li>
+            <li><a href="/caso4-">Caso 4</a></li>
+        </ul>
+        <img src="../static/images/CunLogo.png" alt="UniLogo" class="UniLogo">
+    </nav>
+</header>
+<main>
+    <div class="introduccion">
+        <h1 class="titulos">Machine Learning Supervisado</h1> 
+        <p class="p1-intro">
+            Google Cloud define el machine learning supervisado como “una categoría del aprendizaje automático que utiliza conjuntos de datos etiquetados para entrenar 
+            algoritmos con el objetivo de predecir resultados y reconocer patrones” (s.f.). Estos modelos nos permiten hacer predicciones precisas y es gracias a eso 
+            que se usan en varios sectores, como salud, marketing o finanzas.
+        </p>
+        <figure>
+            <img src="../static/images/D01.png" alt="D01">
+            <figcaption>Tomado de: [https://unirfp.unir.net]</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/D02.png" alt="D02">
+            <figcaption>Tomado de: [https://ia.smartecorganic.com.co/]</figcaption>
+        </figure>
+        <p class="p2-intro">
+            ”La salida de la función puede ser un valor numérico (como en los problemas de regresión) o una etiqueta de clase (como en los de clasificación).” (Wikipedia, s.f.). 
+            IBM (s.f.) también define al aprendizaje supervisado como un entrenamiento con datos para entender la relación entre su entrada (input) y su salida (output), 
+            esto quiere decir que hablamos de funciones aplicados con un algoritmo que procesa estos datos convirtiéndolos en un resultado deseado.
+        </p>
+        
+        <h2 class="titulos">Categorías</h2>
+        <p class="p3-intro">
+            Generalmente estos modelos de aprendizaje se dividen en dos categorías:
+        </p>
+        <figure class="D03">
+            <img src="../static/images/D03.png" alt="D03">
+            <figcaption>Tomado de: [https://www.researchgate.net/]</figcaption>
+        </figure>
+        <p class="p4-intro">
+            <b>Clasificación:</b> “Los algoritmos de clasificación se usan para agrupar datos mediante la predicción de una etiqueta categórica o una variable de salida en 
+            función de los datos de entrada. La clasificación se utiliza cuando las variables de salida son categóricas, es decir, cuando hay dos o más clases.” 
+            (Google Cloud, s.f.).
+        </p>
+        <p class="p5-intro">
+            <b>Regresión:</b> “los algoritmos de regresión utilizan conjuntos de datos de entrenamiento etiquetados para identificar una relación que se ajuste mejor entre 
+            entradas y salidas, de modo que se puedan hacer predicciones matemáticas para nuevas entradas.” (Oracle, 2024).
+        </p>
+        <h2 class="titulos">¿Cómo funciona?</h2>
+        <p class="p6-intro">
+            IBM indica el proceso que por lo general se sigue en un modelo de aprendizaje supervisado:
+        </p>
+        <ul>
+            <li>Identificar el tipo de dato que será utilizado para entrenar el modelo</li>
+            <li>Acomodar los datos y etiquetarlos de manera que sean “datos etiquetados”, además de eso tienen que ser datos no sesgados para evitar problemas de rendimiento y resultados.</li>
+            <li>Estos datos deben estar divididos en 3: datos de entrenamiento, validación y evaluación.</li>
+            <li>Escoger un algoritmo de machine learning para crear el modelo</li>
+            <li>Entrenar el modelo con el algoritmo escogido</li>
+            <li>Ir validando y evaluando el modelo</li>
+            <li>Asegurar un mantenimiento constante sobre su rendimiento y precisión de los resultados</li>
+        </ul>
+        <h2 class="titulos">Diferencia entre Supervisado y no supervisado</h2>
+        <p class="p7-intro">
+            La mejor forma de remarcar las diferencias entre ambas, es la manera en la que estas se entrenan, como se dijo antes, el modelo supervisado 
+            busca producir resultados que el entrenador ya sabe, son patrones ya conocidos, GeekForGeeks (2025) menciona que en cambio, los no supervisados 
+            funciona de manera que los datos no están etiquetados, es decir, son datos de los que no le damos un output a validar, contrario al supervisado
+        </p>
+        <p class="p8-intro">
+            El objetivo del no supervisado es encontrar patrones que no son observables a simple vista, diferente al  supervisado en el que ya conocemos su output y 
+            validamos los resultados del modelo en base a los datos que ya sabemos.
+        </p>
+    </div>
+    <div class="referencias">
+        <h1>Referencias</h1>
+        <ul>
+            <li>OpenAI. (2023). ChatGPT (versión Agosto 31) [Large language model]. <a href="https://chat.openai.com/chat">https://chat.openai.com/chat</a></li>
+            <li>Wikipedia. (10 de mayo de 2025). Aprendizaje supervisado. <a href="https://es.wikipedia.org/wiki/Aprendizaje_supervisado">https://es.wikipedia.org/wiki/Aprendizaje_supervisado</a></li>
+            <li>IBM. (28 de diciembre de 2024). What is supervised learning?. <a href="https://www.ibm.com/think/topics/supervised-learning">https://www.ibm.com/think/topics/supervised-learning</a></li>
+            <li>Chen, M. (17 de julio de 2024). Oracle. ¿Qué es el aprendizaje supervisado?. <a href="https://www.oracle.com/latam/artificial-intelligence/machine-learning/supervised-learning/">https://www.oracle.com/latam/artificial-intelligence/machine-learning/supervised-learning/</a></li>
+            <li>Google Cloud. (s.f.). ¿Qué es el aprendizaje supervisado?. <a href="https://cloud.google.com/discover/what-is-supervised-learning">https://cloud.google.com/discover/what-is-supervised-learning</a></li>
+            <li>GeekForGeeks. (11 de julio de 2025). Difference between Supervised and Unsupervised Learning. <a href="https://www.geeksforgeeks.org/machine-learning/difference-between-supervised-and-unsupervised-learning/">https://www.geeksforgeeks.org/machine-learning/difference-between-supervised-and-unsupervised-learning/</a></li>
+            <li>Communications ACM. (2016). Recommender Systems 2. <a href="https://cacm.acm.org/research/recommender-systems-2/">https://cacm.acm.org/research/recommender-systems-2/</a></li>
+            <li>Wikipedia. (s.f.). The Echo Nest. <a href="https://en.wikipedia.org/wiki/The_Echo_Nest">https://en.wikipedia.org/wiki/The_Echo_Nest</a></li>
+            <li>Wired. (2014). Echo Nest. <a href="https://www.wired.com/story/echo-nest/">https://www.wired.com/story/echo-nest/</a></li>
+            <li>Real Dope Design. (2024). Spotify’s balancing act between personalized playlists and music variety. <a href="https://www.realdopedesign.com/insight/spotifys-balancing-act-between-personalized-playlists-and-music-variety">https://www.realdopedesign.com/insight/spotifys-balancing-act-between-personalized-playlists-and-music-variety</a></li>
+            <li>Prey R. (2018). Nothing personal: algorithmic individuation on music streaming platforms. Media Cult Soc. 40(7):1086-1100. doi: 10.1177/0163443717745147.</li>
+            <li>Wikipedia. (s.f.). Music Genome Project. <a href="https://en.wikipedia.org/wiki/Music_Genome_Project">https://en.wikipedia.org/wiki/Music_Genome_Project</a></li>
+            <li>IEEE Spectrum. (s.f.). Pandora’s Music Genome Project. <a href="https://spectrum.ieee.org/pandora-music-genome-project">https://spectrum.ieee.org/pandora-music-genome-project</a></li>   
+        </ul>
+    </div>
+</main>
+<footer>
+    <p>Universidad de Cundinamarca | Machine Learning | Dylan Bielostozky, Mayra Caipe, Pedro Casas, Miguel González</p>
+</footer>
+
+{% endblock %}
