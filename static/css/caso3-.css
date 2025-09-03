@@ -1,0 +1,111 @@
+/* Reset básico */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; 
+    line-height: 1.8;
+    background-color: #f5f6fa; 
+    color: #333; 
+    padding: 0;
+    margin: 0;
+}
+
+/* Encabezado y Menú pricipal */
+header {
+    background: #2c3e50; 
+    color: white; 
+    padding: 15px 20px; 
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 1.8rem; 
+}
+
+/* Menú de navegación */
+nav ul {
+    list-style: none; 
+    display: flex; 
+    gap: 20px; 
+}
+
+nav ul li {
+    position: relative; 
+}
+
+nav a {
+    text-decoration: none; 
+    color: white; 
+    font-weight: bold; 
+    transition: color 0.3s; 
+}
+
+nav a:hover {
+    color: #1abc9c; 
+}
+
+/* Submenú */
+.submenu {
+    display: none; 
+    position: absolute; 
+    top: 100%;
+    left: 0;
+    background: #34495e; 
+    list-style: none; 
+    padding: 10px;
+    border-radius: 5px; 
+}
+
+nav ul li:hover .submenu {
+    display: block; 
+}
+
+.submenu li {
+    margin: 5px 0; 
+}
+
+.submenu a {
+    color: #ecf0f1; 
+}
+
+/* Contenido */
+main {
+    padding: 30px; 
+    max-width: 900px; 
+    margin: 30px auto; 
+    background: white; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+}
+
+.contenido h2 {
+    color: #2c3e50; 
+    margin-bottom: 20px;
+    font-size: 1.6rem; 
+}
+
+.contenido h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #16a085; 
+    font-size: 1.3rem;
+}
+
+.contenido p {
+    margin-bottom: 15px; 
+    text-align: justify; 
+}
+
+
+.imagen {
+    width: 100%; 
+    max-width: 500px; 
+    display: block; 
+    margin: 20px auto; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2); 
+}
