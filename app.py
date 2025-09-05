@@ -2,7 +2,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/regresion-lineal')
 def index():
     # toca aprender bootstrap
     link_estilos = "./static/styles.css"
