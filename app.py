@@ -13,11 +13,5 @@ def index():
         titulo_actividad="WebApp Flask",
     )
 
-@app.route('/caso1-')
-def caso1():
-    return render_template(
-        "caso1-",
-    )
-
 if __name__ == '__main__':
     app.run(debug=True)
