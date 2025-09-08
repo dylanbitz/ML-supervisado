@@ -1,7 +1,6 @@
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 
-# Dataset 
 data = {
     "velocidad_kmh": [98, 20, 23, 58, 93, 37, 89, 29, 73, 113,
                       21, 87, 36, 97, 64, 47, 88, 109, 85, 39,
@@ -25,19 +24,16 @@ data = {
 df = pd.DataFrame(data)
 
 # Variables independientes y dependiente
-X = df[["velocidad_kmh", "peso_kg"]]
+x = df[["velocidad_kmh", "peso_kg"]]
 y = df["consumo_l_100km"]
 
-# Entrenar modelo
+# Entrenamiento del modelo
 modelo = LinearRegression()
-modelo.fit(X, y)
+modelo.fit(x, y)
 
-# Pedir datos al usuario
-velocidad = float(input("Ingrese la velocidad en km/h: "))
-peso = float(input("Ingrese el peso del vehículo en kg: "))
-
-# Predicción
-DatosP = [[velocidad, peso]]
-prediccion = modelo.predict(DatosP)
-print(f"\nConsumo estimado para un vehículo que viaja a {velocidad} km/h y pesa {peso} kg: {prediccion[0]:.2f} L/100km\n")
-
+def prediccion(velocidad=0., peso=0.) -> float:
+    ''' Esta funcion es la encargada de realizar la predicción de los datos ingresados por el usuario'''
+    datos = pd.DataFrame([[velocidad,peso]], columns=["velocidad_kmh", "peso_kg"]) #como el modelo fue entrenado con valores etiquetados, también espera lo mismo al momento de predecir
+    prediccion = modelo.predict(datos)
+    print(f"Consumo estimado para un vehículo que viaja a {velocidad} km/h y pesa {peso} kg: {prediccion[0]:.2f} L/100km")
+    return prediccion
