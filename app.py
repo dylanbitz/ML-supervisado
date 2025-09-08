@@ -31,7 +31,7 @@ def caso2():
         
     )
 
-@app.get('/caso3-')
+@app.get('/caso3-indFinci')
 def caso3():
     link_estilos = "../static/css/caso3-.css" #tienen que modificar el último nombre styles.css a su propio archivo css
     return render_template(
@@ -40,7 +40,7 @@ def caso3():
         
     )
 
-@app.get('/caso4-')
+@app.get('/caso4-indAutomotriz')
 def caso4():
     link_estilos = "../static/css/caso4-.css" #tienen que modificar el último nombre styles.css a su propio archivo css
     return render_template(
