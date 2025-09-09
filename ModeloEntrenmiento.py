@@ -32,7 +32,10 @@ modelo = LinearRegression()
 modelo.fit(x, y)
 
 def prediccion(velocidad=0., peso=0.) -> float:
-    ''' Esta funcion es la encargada de realizar la predicción de los datos ingresados por el usuario'''
+    ''' 
+    Esta funcion es la encargada de realizar la predicción del consumo de gasolina en función de la velocidad y peso del vehículo,
+    estos son los datos que debe ingresar el usuario
+    '''
     datos = pd.DataFrame([[velocidad,peso]], columns=["velocidad_kmh", "peso_kg"]) #como el modelo fue entrenado con valores etiquetados, también espera lo mismo al momento de predecir
     prediccion = modelo.predict(datos)
     print(f"Consumo estimado para un vehículo que viaja a {velocidad} km/h y pesa {peso} kg: {prediccion[0]:.2f} L/100km")
