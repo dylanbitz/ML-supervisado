@@ -59,13 +59,23 @@ def conceptoBasico():
         
     )
 
-@app.get('/regresion-lineal-ejercicio')
+@app.route('/regresion-lineal-ejercicio', methods=['GET', 'POST'])
 def ejercicioPractico():
     link_estilos = "../static/css/ejercicio.css"
+    prediccion = None
+    velocidad = None
+    peso = None
+    if request.method == 'POST':
+        velocidad = float(request.form["velocidad"])
+        peso = float(request.form["peso"])
+        prediccion = ModeloEntrenmiento.prediccion(velocidad, peso)
     return render_template(
         "ejercicio.html",
         link=link_estilos,
-        
+        grafico=ModeloEntrenmiento.graficaModelo(),
+        velocidad=velocidad,
+        peso=peso,
+        resultado=prediccion,
     )
 
 if __name__ == '__main__':
