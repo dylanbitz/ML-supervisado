@@ -41,7 +41,7 @@
     </section>
     <section>
         <h2>Gráfica del modelo entrenado</h2>
-        <img src="{{ grafico }}" alt="si">
+        <img src="{{ grafico }}" alt="graficoEntrenamiento">
     </section>
     <section>
         <h2>Predicción del modelo</h2>
@@ -57,7 +57,7 @@
             <input type="submit" value="Predecir">
         </form>
 
-        {% if resultado != None %}
+        {% if resultado != 0 %}
             <p>
                 Consumo estimado para un vehículo que viaja a {{ velocidad }} km/h y pesa {{ peso }} 
                 kg: {{ resultado }} L/100km

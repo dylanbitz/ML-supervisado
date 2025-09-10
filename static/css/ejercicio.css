@@ -87,8 +87,6 @@ nav a
     background: #555;
 }
 
-/* --- Estilos principales para el contenido --- */
-
 main {
     display: flex;
     flex-direction: column;
@@ -192,7 +190,6 @@ section > p.resultado {
     padding: 12px 0;
 }
 
-/* Referencias y footer */
 footer
 {
     display: flex;
