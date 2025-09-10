@@ -18,10 +18,6 @@ nav ul
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-nav ul
-{
     padding: 0;
     list-style: none;
 }
@@ -49,6 +45,46 @@ nav a
 .UniLogo
 {
     margin-left: 10px;
+}
+
+.flecha::after {
+    content: "▶";
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+
+.menu-desplegable:hover .flecha::after {
+    content: "▼";
+}
+
+.menu-desplegable {
+    position: relative;
+}
+
+.desplegable-contenido {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #444;
+    min-width: 180px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.desplegable-contenido li a {
+    padding: 10px;
+    color: white;
+    display: block;
+}
+
+.menu-desplegable:hover .desplegable-contenido {
+    display: block;
+}
+
+.desplegable-contenido li a:hover {
+    background: #555;
 }
 
 /*Pueden copiar hasta acá para tener la misma barra de navegación*/
