@@ -49,34 +49,32 @@ def prediccion(velocidad=0., peso=0.) -> float:
     return float(prediccion[0])
 
 def graficaModelo():
-    # ==== Gráfico 3D ====
+    '''
+    Al invocarse genera el gráfico del entrenamiento del modelo, guarda el gráfico en images y cierra nuevamente matplotlib
+    '''
     fig = plt.figure(figsize=(10, 7))
     ax = fig.add_subplot(111, projection='3d')
 
-    # Puntos originales
     ax.scatter(df["velocidad_kmh"], df["peso_kg"], df["consumo_l_100km"], 
         c='blue', marker='o', alpha=0.7, label="Datos reales")
 
-    # Crear una malla para el plano
     vel_range = np.linspace(df["velocidad_kmh"].min(), df["velocidad_kmh"].max(), 20)
     peso_range = np.linspace(df["peso_kg"].min(), df["peso_kg"].max(), 20)
     vel_grid, peso_grid = np.meshgrid(vel_range, peso_range)
 
-    # Predecir sobre la malla
     consumo_pred = modelo.predict(np.c_[vel_grid.ravel(), peso_grid.ravel()])
     consumo_pred = consumo_pred.reshape(vel_grid.shape)
 
-    # Superficie del plano
     ax.plot_surface(vel_grid, peso_grid, consumo_pred, 
                 color='red', alpha=0.5, label="Regresión lineal")
 
-    # Etiquetas
     ax.set_xlabel("Velocidad (km/h)")
     ax.set_ylabel("Peso (kg)")
     ax.set_zlabel("Consumo (L/100km)")
     ax.set_title("Regresión lineal múltiple - Consumo vs Velocidad y Peso")
-
     ax.legend()
+    
+    #esto guarda la imagen de la gráfica utilizando la librería os para generar el path
     graph_path = os.path.join("static/images", "regresion.png")
     plt.savefig(graph_path, dpi=60)
     plt.close(fig)
