@@ -30,50 +30,31 @@
         <h2>¿Qué es la regresión lineal?</h2>
         <p>
             La regresión lineal es un método estadístico que predice una variable dependiente a partir de una o más variables independientes. 
-            Su objetivo es ajustar una recta que represente la relación entre ellas, minimizando la diferencia entre los valores reales 
-            y los estimados mediante el método de mínimos cuadrados.
+            Su objetivo es ajustar una recta que represente la relación entre ellas, el algoritmo se entrena con datos conocidos para luego 
+            predecir valores desconocidos mediante la ecuacion que mejor se ajusta a los datos.
         </p>
-
         <h2>¿Cómo funciona una regresión lineal?</h2>
         <p>
             Funciona estableciendo una relación matemática entre la variable dependiente y, que siempre es numérica, y una o varias variables independientes x. 
-            En el caso más simple, con una sola x, la relación se representa como una línea recta que se ajusta a los datos.
+            En el caso más simple, con una sola x, la relación se representa como una línea recta que se ajusta a los datos, donde:
+            x (independiente o predictoria) en el eje horizontal
+            y (dependiente o de respuesta) en el eje vertical
+            El modelo se expresa con la ecuacion:
+            y = ax + b
+            donde a es la pendiente y b la interseccion con el eje y cuando x = 0.
         </p>
-        
         <h2>¿Para qué sirve la regresión lineal?</h2>
         <p>
             Sirve para predecir valores numéricos en distintos ámbitos. 
             Se aplica en series de tiempo, economía y finanzas, por ejemplo, para estimar consumo, importaciones o riesgos de activos. 
             Es el primer método que suele usarse en problemas de predicción por su sencillez y utilidad.
         </p>
-
         <h2>¿Por qué es importante la regresión lineal?</h2>
         <p>
             Es importante porque es simple, rápida y fácil de interpretar, además de aplicarse en múltiples disciplinas. 
             Sus modelos permiten predicciones confiables y se entrenan con eficiencia. 
-            La ecuación general es <strong>y = ax + b</strong>, donde 
-            <em>a</em> es la pendiente y <em>b</em> el valor de y cuando x = 0.
         </p>
-        <h2>¿Como funciona la regresion lineal?</h2>
-        <p>
-            La regresion lineal simple busca representar la relacion entre dos variables:
-            x (independiente o predictoria) en el eje horizontal
-            y (dependiente o de respuesta) en el eje vertical
-            El modelo se expresa con la ecuacion:
-            y = c * x + m
-            donde c es la pendiente y m la interseccion con el eje y
-        <p>
-        <h2>¿Que es la regresion lineal en machine learning?</h2>
-        <p> 
-            La regresion lineal en Machine Learning es un metodo estadistico que modela la relacion entre una 
-            o mas variables independientes u una variable dependiente continua.
-            El algoritmo se entrena con datos conocidos para luego predecir valores desconocidos mediatne la
-            ecuacion que mejor se ajusta a los datos.
-            En la practica, los datos no siempre son ideales, por lo que se deben cumplir ciertos supuestos estadisticos
-            para asegurar la validez del modelo 
-
-        <p>
-        <h2>Tipos de regresion lineal</h2>
+        <h2>Tipos de regresión lineal</h2>
         <p>
             La regresion lineal es una tecnica usada en machine learning y analisis de datos para modelar relaciones
             entre variables. Existen varias variantes segun la complejidad de los datos y la relacion que se desea analizar
@@ -109,7 +90,36 @@
             Probabilidad de que un equipo gane o pierda
             Prediccion de si un estudiante aprueba un examen
             Clasificacion de imagenes (ej. fruta vs animal)
+        </p>
+        <h2>Supuestos habituales</h2>
+        <h3>Linealidad</h3>
         <p>
+            La relación entre las variables independientes y la dependiente debe ser lineal. 
+            Si no lo es, los resultados pueden ser poco confiables y llevar a interpretaciones erróneas.
+        </p>
+        <h3>Normalidad</h3>
+        <p>
+            Los errores de la regresión deben seguir una distribución normal, no las variables, cumplir este supuesto asegura 
+            intervalos de confianza y pruebas de hipótesis correctas, si no se cumple, las conclusiones estadísticas pueden ser equivocadas.
+        </p>
+        <h3>Homocedasticidad</h3>
+        <p>
+            La varianza de los errores debe ser constante en todos los niveles de las variables predictoras. 
+            Si se viola y aparece heterocedasticidad, los intervalos de confianza y valores p se distorsionan, afectando la precisión de las pruebas.
+        </p>
+        <h3>Independencia</h3>
+        <p>
+            Los errores no deben estar correlacionados entre sí. 
+            La presencia de autocorrelación indica que los errores muestran un patrón sistemático en el tiempo, lo que afecta la validez 
+            de los coeficientes y pruebas de hipótesis, los errores deben distribuirse de manera aleatoria, con media cero y varianza constante.
+        </p>
+        <h2>Referencias</h2>
+        <ol>
+            <li>IBM. (s. f.). <em>Regresión lineal</em>. IBM Think. Recuperado el 9 de septiembre de 2025, de <a href="https://www.ibm.com/es-es/think/topics/linear-regression" target="_blank">https://www.ibm.com/es-es/think/topics/linear-regression</a></li>
+            <li>Dot CSV. (2018, 25 de noviembre). <em>Regresión lineal: cómo funciona</em> [Video]. YouTube.<a href="https://youtu.be/hutg0JpDbPY" target="_blank">https://youtu.be/hutg0JpDbPY</a></li>
+            <li>Platzi. (2020, 17 de enero). <em>¿Qué es regresión lineal?</em> Platzi Blog. <a href="https://platzi.com/blog/que-es-regresion-lineal/" target="_blank">https://platzi.com/blog/que-es-regresion-lineal/</a></li>
+            <li>Amazon Web Services. (s. f.). <em>¿Qué es la regresión lineal?</em> AWS. Recuperado el 9 de septiembre de 2025, de <a href="https://aws.amazon.com/es/what-is/linear-regression/" target="_blank">https://aws.amazon.com/es/what-is/linear-regression/</a></li>
+        </ol>
     </section>
 </main>
 
