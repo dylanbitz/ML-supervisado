@@ -62,7 +62,7 @@ def conceptoBasico():
 @app.route('/regresion-lineal-ejercicio', methods=['GET', 'POST'])
 def ejercicioPractico():
     link_estilos = "../static/css/ejercicio.css"
-    prediccion = None
+    prediccion = 0
     velocidad = None
     peso = None
     if request.method == 'POST':
@@ -75,7 +75,7 @@ def ejercicioPractico():
         grafico=ModeloEntrenmiento.graficaModelo(),
         velocidad=velocidad,
         peso=peso,
-        resultado=prediccion,
+        resultado=round(prediccion, 2),
     )
 
 if __name__ == '__main__':
