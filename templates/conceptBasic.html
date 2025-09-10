@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<header>
+    <nav>
+        <img src="../static/images/ML-act128.png" alt="logo-actividad">
+        <ul class="navbar">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="{{ url_for('caso1') }}">Caso 1</a></li>
+            <li><a href="{{ url_for('caso2') }}">Caso 2</a></li>
+            <li><a href="{{ url_for('caso3') }}">Caso 3</a></li>
+            <li><a href="{{ url_for('caso4') }}"></a>Caso 4</li>
+            <li class="menu-desplegable">
+                <a href="#">Regresión Lineal <span class="flecha"></span></a>
+                <ul class="desplegable-contenido">
+                    <li><a href="{{ url_for('conceptoBasico') }}">Conceptos básicos</a></li>
+                    <li><a href="{{ url_for('ejercicioPractico') }}">Ejercicio Práctico</a></li>
+                </ul>
+            </li>
+        </ul>
+        <img src="../static/images/CunLogo.png" alt="UniLogo" class="UniLogo">
+    </nav>
+</header>
+
+{% endblock %}
