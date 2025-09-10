@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<header>
+    <nav>
+        <img src="../static/images/ML-act128.png" alt="logo-actividad">
+        <ul class="navbar">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="{{ url_for('caso1') }}">Caso 1</a></li>
+            <li><a href="{{ url_for('caso2') }}">Caso 2</a></li>
+            <li><a href="{{ url_for('caso3') }}">Caso 3</a></li>
+            <li><a href="{{ url_for('caso4') }}"></a>Caso 4</li>
+            <li class="menu-desplegable">
+                <a href="#">Regresión Lineal <span class="flecha"></span></a>
+                <ul class="desplegable-contenido">
+                    <li><a href="{{ url_for('conceptoBasico') }}">Conceptos básicos</a></li>
+                    <li><a href="{{ url_for('ejercicioPractico') }}">Ejercicio Práctico</a></li>
+                </ul>
+            </li>
+        </ul>
+        <img src="../static/images/CunLogo.png" alt="UniLogo" class="UniLogo">
+    </nav>
+</header>
+<main>
+    <section>
+        <h2>Explicación Dataset</h2>
+        <p>El dataset de entrenamiento del modelo tiene tres columnas principales:</p>
+        <ul>
+            <li><b>Velocidad km/h</b> → representa la velocidad del vehículo en kilómetros por hora. 
+                Tiene valores en un rango aproximado de 20 km/h hasta 120 km/h.</li>
+            <li>
+                <b>Peso en kg</b> → corresponde al peso del vehículo en kilogramos.
+                Se encuentran desde autos muy livianos (≈ 300 kg) hasta vehículos pesados (≈ 2000 kg).
+            </li>
+            <li>
+                <b>Consumo L/100km</b> → es la variable dependiente que se quiere predecir, el consumo de combustible en litros por cada 100 km.
+                Los valores están entre ~5 L/100km y ~9,5 L/100km.
+            </li>
+        </ul>
+    </section>
+    <section>
+        <h2>Gráfica del modelo entrenado</h2>
+        <img src="{{ grafico }}" alt="graficoEntrenamiento">
+    </section>
+    <section>
+        <h2>Predicción del modelo</h2>
+        <form method="POST" action="">
+            <label for="velocidad">
+                <span>Por favor introduce la velocidad</span>
+                <input type="number" id="velocidad" name="velocidad">
+            </label>
+            <label for="peso">
+                <span>Por favor introduce el peso</span>
+                <input type="number" id="peso" name="peso">
+            </label>
+            <input type="submit" value="Predecir">
+        </form>
+
+        {% if resultado != 0 %}
+            <p>
+                Consumo estimado para un vehículo que viaja a {{ velocidad }} km/h y pesa {{ peso }} 
+                kg: {{ resultado }} L/100km
+            </p>
+        {% endif %}
+    </section>
+</main>
+
+<footer>
+    <p>Universidad de Cundinamarca | Machine Learning | Dylan Bielostozky, Mayra Caipe, Pedro Casas, Miguel González</p>
+</footer>
+
+{% endblock %}

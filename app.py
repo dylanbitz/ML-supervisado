@@ -1,10 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, request
+import ModeloEntrenmiento
 
 app = Flask(__name__)
 
 @app.get('/')
 def index():
-    link_estilos = "../static/css/index.css" #tienen que modificar el último nombre styles.css a su propio archivo css
+    link_estilos = "../static/css/index.css"
     return render_template(
         "index.html",
         link=link_estilos,
@@ -14,7 +15,7 @@ def index():
 
 @app.get('/caso1-indmusical')
 def caso1():
-    link_estilos = "../static/css/caso1-.css" #tienen que modificar el último nombre styles.css a su propio archivo css
+    link_estilos = "../static/css/caso1-.css"
     return render_template(
         "caso1-indmusical.html",
         link=link_estilos,
@@ -24,29 +25,57 @@ def caso1():
 
 @app.get('/caso2-IndTexti')
 def caso2():
-    link_estilos = "../static/css/caso2-.css" #tienen que modificar el último nombre styles.css a su propio archivo css
+    link_estilos = "../static/css/caso2-.css" 
     return render_template(
         "caso2-.html",
         link=link_estilos,
         
     )
 
-@app.get('/caso3-')
+@app.get('/caso3-indFinci')
 def caso3():
-    link_estilos = "../static/css/caso3-.css" #tienen que modificar el último nombre styles.css a su propio archivo css
+    link_estilos = "../static/css/caso3-.css" 
     return render_template(
         "caso3-.html",
         link=link_estilos,
         
     )
 
-@app.get('/caso4-')
+@app.get('/caso4-indAutomotriz')
 def caso4():
-    link_estilos = "../static/css/caso4-.css" #tienen que modificar el último nombre styles.css a su propio archivo css
+    link_estilos = "../static/css/caso4-.css" 
     return render_template(
         "caso4-.html",
         link=link_estilos,
         
+    )
+
+@app.get('/regresion-lineal-conceptBasic')
+def conceptoBasico():
+    link_estilos = "../static/css/conceptBasic.css"
+    return render_template(
+        "conceptBasic.html",
+        link=link_estilos,
+        
+    )
+
+@app.route('/regresion-lineal-ejercicio', methods=['GET', 'POST'])
+def ejercicioPractico():
+    link_estilos = "../static/css/ejercicio.css"
+    prediccion = 0
+    velocidad = None
+    peso = None
+    if request.method == 'POST':
+        velocidad = float(request.form["velocidad"])
+        peso = float(request.form["peso"])
+        prediccion = ModeloEntrenmiento.prediccion(velocidad, peso)
+    return render_template(
+        "ejercicio.html",
+        link=link_estilos,
+        grafico=ModeloEntrenmiento.graficaModelo(),
+        velocidad=velocidad,
+        peso=peso,
+        resultado=round(prediccion, 2),
     )
 
 if __name__ == '__main__':

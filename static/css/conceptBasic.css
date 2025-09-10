@@ -1,4 +1,3 @@
-/*Si quieren tener la misma barra de navegación copien de aquí hasta el otro comentario*/
 body
 {
     color: #252323;
@@ -71,6 +70,7 @@ nav a
     list-style: none;
     padding: 0;
     margin: 0;
+    z-index: 100;
 }
 
 .desplegable-contenido li a {
@@ -87,113 +87,75 @@ nav a
     background: #555;
 }
 
-/*Pueden copiar hasta acá para tener la misma barra de navegación*/
-
-.titulos
-{
-    padding: 20px 20px 0px 20px;
-}
-
-.introduccion
-{
+main.contenido {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
+    padding-bottom: 40px;
 }
 
-.titulos
-{
-    width: 100vw;
-    padding: 0;
-    padding-left: 25px;
+section {
+    width: 90vw;
+    max-width: 900px;
+    margin: 30px 0 0 0;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px 40px 30px 40px;
 }
 
-.introduccion p
-{
-    margin: 0;
-    padding: 10px 40px 10px 40px;
-    margin-bottom: 20px;
-    background-color: #DAD2BC;
-
-}
-
-.p1-intro.p1-intro
-{
-    margin: 0;
-    width: 600px;
-    height: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.p2-intro.p2-intro
-{
-    margin: 0;
-    width: 500px;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    flex: 1;
-}
-
-.D03
-{
-    position: relative;
-    bottom: 50px;
-    height: 10px;
-}
-
-.p4-intro.p4-intro
-{
-    margin: 0;
-    margin-right: 50px;
-    width: 650px;
-    background-color: #F5F1ED;
-
-}
-.p5-intro.p5-intro
-{
-    margin: 0;
-    margin-right: 50px;
-    width: 650px;
-    background-color: #F5F1ED;
-}
-
-
-.p2-intro,
-.p8-intro
-{
-    text-align: right;
-}
-
-.p3-intro.p3-intro,
-.p6-intro.p6-intro
-{
-    margin: 0;
-    background-color: #F5F1ED;
-}
-
-.p4-intro.p4-intro,
-.p5-intro.p5-intro
-{
-    padding-left: 60px;
-}
-
-.introduccion ul
-{
+section h1 {
     margin-top: 0;
-    padding-left: 80px;
-    padding-right: 30px;
+    margin-bottom: 18px;
+    padding-left: 5px;
+    color: #252323;
+    font-size: 2em;
+    font-weight: bold;
 }
 
-.referencias
-{
-    padding: 0px 20px 0px 20px;
+section h2 {
+    margin-top: 30px;
+    margin-bottom: 12px;
+    padding-left: 5px;
+    color: #252323;
+    font-size: 1.4em;
+    font-weight: bold;
 }
 
-.referencias ul
-{
-    list-style: decimal;
+section h3 {
+    margin-top: 18px;
+    margin-bottom: 8px;
+    padding-left: 10px;
+    color: #70798C;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+section p {
+    margin: 0 0 18px 0;
+    padding: 10px 20px;
+    background-color: #DAD2BC;
+    border-radius: 6px;
+}
+
+section ul,
+section ol {
+    margin-top: 0;
+    padding-left: 40px;
+    padding-right: 10px;
+}
+
+section li {
+    margin-bottom: 8px;
+}
+
+section a {
+    color: #70798C;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+section a:hover {
+    color: #A99985;
 }
 
 footer
@@ -208,6 +170,7 @@ footer
 footer p
 {
     margin: 0;
-    padding: 30px 5px;
+    padding: 10px 20px;
+    color: #fff;
     text-align: center;
 }

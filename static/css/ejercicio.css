@@ -1,0 +1,209 @@
+body
+{
+    color: #252323;
+    display: flex;
+    flex-direction: column;
+
+}
+
+header, main, footer
+{
+    background: #F5F1ED;
+}
+
+nav, 
+nav ul
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    list-style: none;
+}
+
+nav li
+{
+    margin: 2px;
+    padding: 5px 10px;
+    background-color: #70798C;
+    transition: background-color 0.5s ease;
+    border-radius: 3px;
+}
+
+nav li:hover
+{
+    background-color: #A99985;
+}
+
+nav a
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+.UniLogo
+{
+    margin-left: 10px;
+}
+
+.flecha::after {
+    content: "▶";
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+
+.menu-desplegable:hover .flecha::after {
+    content: "▼";
+}
+
+.menu-desplegable {
+    position: relative;
+}
+
+.desplegable-contenido {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #444;
+    min-width: 180px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 100;
+}
+
+.desplegable-contenido li a {
+    padding: 10px;
+    color: white;
+    display: block;
+}
+
+.menu-desplegable:hover .desplegable-contenido {
+    display: block;
+}
+
+.desplegable-contenido li a:hover {
+    background: #555;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+section {
+    width: 90vw;
+    max-width: 800px;
+    margin: 30px 0 0 0;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px 40px 30px 40px;
+}
+
+section h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    padding-left: 5px;
+    color: #252323;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+section p {
+    margin: 0 0 18px 0;
+    padding: 10px 20px;
+    background-color: #DAD2BC;
+    border-radius: 6px;
+}
+
+section ul {
+    margin-top: 0;
+    padding-left: 40px;
+    padding-right: 10px;
+}
+
+section img {
+    display: block;
+    margin: 0 auto 10px auto;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px #0002;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+}
+
+form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    margin-bottom: 0;
+    gap: 4px;
+}
+
+form input[type="number"] {
+    width: 200px;
+    padding: 6px 10px;
+    border: 1px solid #A99985;
+    border-radius: 4px;
+    background: #F5F1ED;
+    font-size: 1em;
+}
+
+form input[type="submit"] {
+    margin-top: 10px;
+    padding: 8px 22px;
+    background-color: #70798C;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form input[type="submit"]:hover {
+    background-color: #A99985;
+}
+
+section > p:last-child {
+    margin-bottom: 0;
+}
+
+section > p.resultado {
+    background: #A99985;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+    border-radius: 6px;
+    padding: 12px 0;
+}
+
+footer
+{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    font-weight: bold;
+    background-color: #A99985;
+}
+
+footer p
+{
+    margin: 0;
+    padding: 30px 5px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #252323;
+}
