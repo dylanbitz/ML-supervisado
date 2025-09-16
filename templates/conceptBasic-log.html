@@ -12,7 +12,7 @@
             <li><a href="{{ url_for('caso3') }}">Caso 3</a></li>
             <li><a href="{{ url_for('caso4') }}"></a>Caso 4</li>
             <li class="menu-desplegable">
-                <a href="#">Regresión Lineal <span class="flecha"></span></a>
+                <a href="#">Regresión Logistica <span class="flecha"></span></a>
                 <ul class="desplegable-contenido">
                     <li><a href="{{ url_for('conceptoBasico') }}">Conceptos básicos</a></li>
                     <li><a href="{{ url_for('ejercicioPractico') }}">Ejercicio Práctico</a></li>
@@ -25,100 +25,49 @@
 
 <main class="contenido">
     <section>
-        <h1>Conceptos básicos de Regresión Lineal</h1>
+        <h1>Conceptos básicos de Regresión Logistica</h1>
 
-        <h2>¿Qué es la regresión lineal?</h2>
+        <h2>¿Qué es la regresión logistica?</h2>
         <p>
-            La regresión lineal es un método estadístico que predice una variable dependiente a partir de una o más variables independientes. 
-            Su objetivo es ajustar una recta que represente la relación entre ellas, el algoritmo se entrena con datos conocidos para luego 
-            predecir valores desconocidos mediante la ecuacion que mejor se ajusta a los datos.
+            La regresión logística es un algoritmo de clasificación supervisada que predice la probabilidad de una variable dependiente categórica binaria, 
+            como sí/no o 0/1. Es uno de los métodos más utilizados por su simplicidad y utilidad en problemas de clasificación binaria, como la detección 
+            de cáncer o la probabilidad de un evento.
         </p>
-        <h2>¿Cómo funciona una regresión lineal?</h2>
+        <h2>Caracteristicas</h2>
         <p>
-            Funciona estableciendo una relación matemática entre la variable dependiente y, que siempre es numérica, y una o varias variables independientes x. 
-            En el caso más simple, con una sola x, la relación se representa como una línea recta que se ajusta a los datos, donde:
-            x (independiente o predictoria) en el eje horizontal
-            y (dependiente o de respuesta) en el eje vertical
-            El modelo se expresa con la ecuacion:
-            y = ax + b
-            donde a es la pendiente y b la interseccion con el eje y cuando x = 0.
+            - Variable de salida binaria: La regresión logística se aplica solo a problemas con dos clases posibles, como 0/1 o sí/no. 
+            El modelo predice una probabilidad y clasifica según un umbra
+            - Eliminación de ruido y valores atípicos: Los datos extremos afectan la precisión del modelo, por lo que es importante limpiar 
+            y depurar el dataset antes del entrenamiento.
+            - Relación con distribución gaussiana: El modelo funciona mejor si las variables tienen una relación lineal con la salida. 
+            Transformar los datos puede mejorar el ajuste.
+            - Problemas con entradas altamente correlacionadas: La multicolinealidad provoca sobreajuste e inestabilidad en los coeficientes. 
+            Se deben eliminar o combinar variables redundantes.
+            - Posible falta de convergencia: El modelo puede no llegar a una solución estable con datos escasos o muy correlacionados. 
+            Se soluciona con regularización y mejor preparación de datos.
         </p>
-        <h2>¿Para qué sirve la regresión lineal?</h2>
+        <h2>Tipos</h2>
         <p>
-            Sirve para predecir valores numéricos en distintos ámbitos. 
-            Se aplica en series de tiempo, economía y finanzas, por ejemplo, para estimar consumo, importaciones o riesgos de activos. 
-            Es el primer método que suele usarse en problemas de predicción por su sencillez y utilidad.
+            Binaria: Dos posibles resultados (ej. spam/no spam).
+            Multinomial: Tres o más resultados sin orden (ej. preferencia de género de películas).
+            Ordinal: Tres o más resultados con orden (ej. calificaciones A–F o escalas 1–5).
         </p>
-        <h2>¿Por qué es importante la regresión lineal?</h2>
+         <h2>¿Como funciona?</h2>
         <p>
-            Es importante porque es simple, rápida y fácil de interpretar, además de aplicarse en múltiples disciplinas. 
-            Sus modelos permiten predicciones confiables y se entrenan con eficiencia. 
+            - Variables predictoras: Son las características usadas por el modelo, como edad, ingresos o historial de navegación.
+            - Representación de características: Es una combinación específica de valores de las variables predictoras en un caso concreto.
+            - Función de enlace: Conecta variables de entrada con probabilidades; en regresión logística suele ser la función sigmoide, su ecuación: θ = b(μ)
+            Donde (θ) probabilidades por categoría de predecir, (b) una función específica y (μ) valor predicho (de un rango continuo de valores). 
+            - Función logística: La sigmoide transforma valores en probabilidades entre 0 y 1, útiles para la clasificación, su ecuación: σ (x) = 1/(1+e^-x)
+            - Función logit: Convierte probabilidades en logaritmos de razones, mostrando la influencia de las variables, su ecuación: logit p = σ(p)^-1 = ln(p/(1–p))
+            - Pérdida logarítmica: Mide la diferencia entre probabilidades predichas y reales, guiando el entrenamiento del modelo.
+            - Proceso de entrenamiento: Ajusta parámetros minimizando la pérdida, usando métodos como descenso de gradiente o máxima verosimilitud.
         </p>
-        <h2>Tipos de regresión lineal</h2>
-        <p>
-            La regresion lineal es una tecnica usada en machine learning y analisis de datos para modelar relaciones
-            entre variables. Existen varias variantes segun la complejidad de los datos y la relacion que se desea analizar
-
-            Regresion Lineal Simple:
-            Analiza la relacion entre una variable dependiente (X) y una dependiente (Y)
-            Su ecuacion es la siguiente:
-
-            Y = &beta;0 X + &beta;1 + E
-            Ejemplos de apliacion:
-            Lluvia y rendimiento agricola
-            Edad y estatura en niños
-            Tempreatura y expansion del mercurio en un termometro
-
-            Regresion lineal Multiple:
-            COnsidera una variable dependiente y varias independientes.
-            Su ecuacion es:
-            
-            Y= &beta;0 X0 + &beta;1 X1 + &beta;2 X2 + ... + &beta;N Xn + E
-            
-            Ejemplos de aplicacion:
-            Lluvia, tempreatura y fertilizantes en cultivos
-            Dieta y ejercicio en la salud cardiaca
-            Crecimiento salarial e inflacion en tasas hipotecarias
-
-            Regresion Logistica
-            Se usa cuando la variable dependiente es categorica (generalmente binaria),
-            estima una probabilidad entre 0 y 1
-            
-            Su ecuacion es:
-            P(Y=1 | X) = 1 / (1 + e<sup>-(&beta;0 + &beta;1 X1 + ... + &beta;N XN)</sup>)
-            Ejemplos de apliacion:
-            Probabilidad de que un equipo gane o pierda
-            Prediccion de si un estudiante aprueba un examen
-            Clasificacion de imagenes (ej. fruta vs animal)
-        </p>
-        <h2>Supuestos habituales</h2>
-        <h3>Linealidad</h3>
-        <p>
-            La relación entre las variables independientes y la dependiente debe ser lineal. 
-            Si no lo es, los resultados pueden ser poco confiables y llevar a interpretaciones erróneas.
-        </p>
-        <h3>Normalidad</h3>
-        <p>
-            Los errores de la regresión deben seguir una distribución normal, no las variables, cumplir este supuesto asegura 
-            intervalos de confianza y pruebas de hipótesis correctas, si no se cumple, las conclusiones estadísticas pueden ser equivocadas.
-        </p>
-        <h3>Homocedasticidad</h3>
-        <p>
-            La varianza de los errores debe ser constante en todos los niveles de las variables predictoras. 
-            Si se viola y aparece heterocedasticidad, los intervalos de confianza y valores p se distorsionan, afectando la precisión de las pruebas.
-        </p>
-        <h3>Independencia</h3>
-        <p>
-            Los errores no deben estar correlacionados entre sí. 
-            La presencia de autocorrelación indica que los errores muestran un patrón sistemático en el tiempo, lo que afecta la validez 
-            de los coeficientes y pruebas de hipótesis, los errores deben distribuirse de manera aleatoria, con media cero y varianza constante.
-        </p>
+    
+        
         <h2>Referencias</h2>
         <ol>
-            <li>IBM. (s. f.). <em>Regresión lineal</em>. IBM Think. Recuperado el 9 de septiembre de 2025, de <a href="https://www.ibm.com/es-es/think/topics/linear-regression" target="_blank">https://www.ibm.com/es-es/think/topics/linear-regression</a></li>
-            <li>Dot CSV. (2018, 25 de noviembre). <em>Regresión lineal: cómo funciona</em> [Video]. YouTube.<a href="https://youtu.be/hutg0JpDbPY" target="_blank">https://youtu.be/hutg0JpDbPY</a></li>
-            <li>Platzi. (2020, 17 de enero). <em>¿Qué es regresión lineal?</em> Platzi Blog. <a href="https://platzi.com/blog/que-es-regresion-lineal/" target="_blank">https://platzi.com/blog/que-es-regresion-lineal/</a></li>
-            <li>Amazon Web Services. (s. f.). <em>¿Qué es la regresión lineal?</em> AWS. Recuperado el 9 de septiembre de 2025, de <a href="https://aws.amazon.com/es/what-is/linear-regression/" target="_blank">https://aws.amazon.com/es/what-is/linear-regression/</a></li>
+         
         </ol>
     </section>
 </main>
