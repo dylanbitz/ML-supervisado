@@ -78,5 +78,14 @@ def ejercicioPractico():
         resultado=round(prediccion, 2),
     )
 
+@app.get('/regresion-logistica-conceptBasic')
+def conceptoBasico_logistica():
+    link_estilos = "../static/css/conceptBasic.css"
+    return render_template(
+        "conceptBasic-log.html",
+        link=link_estilos,
+        
+    )
+
 if __name__ == '__main__':
     app.run(debug=True)
