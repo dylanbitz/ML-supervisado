@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request
-import ModeloEntrenmiento
+import RegresionLineal
 
 app = Flask(__name__)
 
@@ -68,11 +68,11 @@ def ejercicioPractico():
     if request.method == 'POST':
         velocidad = float(request.form["velocidad"])
         peso = float(request.form["peso"])
-        prediccion = ModeloEntrenmiento.prediccion(velocidad, peso)
+        prediccion = RegresionLineal.prediccion(velocidad, peso)
     return render_template(
         "ejercicio.html",
         link=link_estilos,
-        grafico=ModeloEntrenmiento.graficaModelo(),
+        grafico=RegresionLineal.graficaModelo(),
         velocidad=velocidad,
         peso=peso,
         resultado=round(prediccion, 2),
@@ -100,5 +100,14 @@ def ejerRL():
     
     
     
+@app.get('/regresion-logistica-conceptBasic')
+def conceptoBasico_logistica():
+    link_estilos = "../static/css/conceptBasic.css"
+    return render_template(
+        "conceptBasic-log.html",
+        link=link_estilos,
+        
+    )
+
 if __name__ == '__main__':
     app.run(debug=True)
