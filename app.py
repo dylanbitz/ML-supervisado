@@ -79,7 +79,10 @@ def ejercicioPractico():
     )
 @app.get('/regresion-logistica-conceptBasic')
 def comBasRL():
-    link_estilos = "../static/css/comBasRL.css"  
+    link_estilos = "../static/css/comBasRL.css"
+    prediccion = 0
+    velocidad = None
+    peso = None  
     return render_template(
         "comBasRL.html",
         link=link_estilos,
@@ -89,7 +92,10 @@ def comBasRL():
 @app.route('/regresion-logistica-ejercicio', methods=['GET', 'POST'])
 def ejerRL():
     link_estilos = "../static/css/ejerRL.css"
-    
+    prediccion = 0
+    velocidad = None
+    peso = None
+
     return render_template(
         "ejerRL.html",
         link=link_estilos,
