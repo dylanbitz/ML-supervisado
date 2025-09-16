@@ -77,6 +77,18 @@ def ejercicioPractico():
         peso=peso,
         resultado=round(prediccion, 2),
     )
-
+@app.get('/regresion-logistica-conceptBasic')
+def comBasRL():
+    link_estilos = "../static/css/comBasRl.css"
+    return render_template(
+        "comBasRl.html",
+        link=link_estilos,
+        
+    )
+    
+    
+    
+    
+    
 if __name__ == '__main__':
     app.run(debug=True)
