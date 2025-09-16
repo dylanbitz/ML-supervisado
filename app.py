@@ -79,13 +79,21 @@ def ejercicioPractico():
     )
 @app.get('/regresion-logistica-conceptBasic')
 def comBasRL():
-    link_estilos = "../static/css/comBasRl.css"
+    link_estilos = "../static/css/comBasRL.css"  
     return render_template(
-        "comBasRl.html",
+        "comBasRL.html",
         link=link_estilos,
-        
     )
-    
+
+# Añadir el endpoint faltante para regresión logística práctica
+@app.route('/regresion-logistica-ejercicio', methods=['GET', 'POST'])
+def ejerRL():
+    link_estilos = "../static/css/ejerRL.css"
+    # Aquí va la lógica para regresión logística similar a la de regresión lineal
+    return render_template(
+        "ejerRL.html",
+        link=link_estilos,
+    )
     
     
     
