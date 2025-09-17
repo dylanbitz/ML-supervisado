@@ -18,6 +18,13 @@
                     <li><a href="{{ url_for('ejercicioPractico') }}">Ejercicio Práctico</a></li>
                 </ul>
             </li>
+            <li class="menu-desplegable"> 
+                <a href="#">Regresión Logística <span class="flecha"></span></a>
+                <ul class="desplegable-contenido">
+                    <li><a href="{{ url_for('conceptoBasico_logistica') }}">Conceptos básicos</a></li>
+                    <li><a href="{{ url_for('ejercicioPractico_logistica') }}">Ejercicio Práctico</a></li>
+                </ul>
+            </li>
         </ul>
         <img src="../static/images/CunLogo.png" alt="UniLogo" class="UniLogo">
     </nav>
@@ -102,5 +109,8 @@
         </ol>
     </section>
 </main>
+<footer>
+    <p>Universidad de Cundinamarca | Machine Learning | Dylan Bielostozky, Mayra Caipe, Pedro Casas, Miguel González</p>
+</footer>
 
 {% endblock %}
