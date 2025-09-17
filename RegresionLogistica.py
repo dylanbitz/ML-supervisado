@@ -5,9 +5,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, accuracy_score, classification_report, ConfusionMatrixDisplay
-import matplotlib
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 
 datos_diabetes = pd.read_csv('./datasets/diabetes_prediction_dataset.csv') # leemos el dataset
 
