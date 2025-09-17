@@ -78,7 +78,29 @@ def ejercicioPractico():
         peso=peso,
         resultado=round(prediccion, 2),
     )
+@app.get('/regresion-logistica-conceptBasic')
+def comBasRL():
+    link_estilos = "../static/css/comBasRL.css"
+   
+    return render_template(
+        "comBasRL.html",
+        link=link_estilos,
+    )
 
+
+@app.route('/regresion-logistica-ejercicio', methods=['GET', 'POST'])
+def ejerRL():
+    link_estilos = "../static/css/ejerRL.css"
+   
+
+    return render_template(
+        "ejerRL.html",
+        link=link_estilos,
+    )
+    
+    
+    
+    
 @app.get('/regresion-logistica-conceptBasic')
 def conceptoBasico_logistica():
     link_estilos = "../static/css/conceptBasic.css"
