@@ -44,35 +44,42 @@
         </p>
         <h2>Caracteristicas</h2>
         <p>
-            - Variable de salida binaria: La regresión logística se aplica solo a problemas con dos clases posibles, como 0/1 o sí/no. 
+        <ul>
+            <li><b>Variable de salida binaria:</b> La regresión logística se aplica solo a problemas con dos clases posibles, como 0/1 o sí/no. 
             El modelo predice una probabilidad y clasifica según un umbra
-            - Eliminación de ruido y valores atípicos: Los datos extremos afectan la precisión del modelo, por lo que es importante limpiar 
+            <li><b>Eliminación de ruido y valores atípicos:</b> Los datos extremos afectan la precisión del modelo, por lo que es importante limpiar 
             y depurar el dataset antes del entrenamiento.
-            - Relación con distribución gaussiana: El modelo funciona mejor si las variables tienen una relación lineal con la salida. 
+            <li><b>Relación con distribución gaussiana:</b> El modelo funciona mejor si las variables tienen una relación lineal con la salida. 
             Transformar los datos puede mejorar el ajuste.
-            - Problemas con entradas altamente correlacionadas: La multicolinealidad provoca sobreajuste e inestabilidad en los coeficientes. 
+            <li><b>Problemas con entradas altamente correlacionadas:</b> La multicolinealidad provoca sobreajuste e inestabilidad en los coeficientes. 
             Se deben eliminar o combinar variables redundantes.
-            - Posible falta de convergencia: El modelo puede no llegar a una solución estable con datos escasos o muy correlacionados. 
+            <li><b>Posible falta de convergencia:</b> El modelo puede no llegar a una solución estable con datos escasos o muy correlacionados. 
             Se soluciona con regularización y mejor preparación de datos.
+        </ul>
         </p>
       <h2>Tipos</h2>
-        <ul>
-    <li><b>Binaria:</b> Dos posibles resultados (ej. spam/no spam).</li>
-    <li><b>Multinomial:</b> Tres o más resultados sin orden (ej. preferencia de género de películas).</li>
-    <li><b>Ordinal:</b> Tres o más resultados con orden (ej. calificaciones A–F o escalas 1–5).</li>
-        </ul>
+       <p>
+      <ul>
+        <li><b>Binaria:</b> Dos posibles resultados (ej. spam/no spam).</li>
+        <li><b>Multinomial:</b> Tres o más resultados sin orden (ej. preferencia de género de películas).</li>
+        <li><b>Ordinal:</b> Tres o más resultados con orden (ej. calificaciones A–F o escalas 1–5).</li>
+      </ul>
+    </p>
+
 
          <h2>¿Como funciona?</h2>
         <p>
-            - Variables predictoras: Son las características usadas por el modelo, como edad, ingresos o historial de navegación.
-            - Representación de características: Es una combinación específica de valores de las variables predictoras en un caso concreto.
-            - Función de enlace: Conecta variables de entrada con probabilidades; en regresión logística suele ser la función sigmoide, su ecuación: θ = b(μ)
+        <ul>
+            <li><b> Variables predictoras: </b>Son las características usadas por el modelo, como edad, ingresos o historial de navegación.
+            <li><b> Representación de características:</b> Es una combinación específica de valores de las variables predictoras en un caso concreto.
+            <li><b>Función de enlace:</b> Conecta variables de entrada con probabilidades; en regresión logística suele ser la función sigmoide, su ecuación: θ = b(μ)
             Donde (θ) probabilidades por categoría de predecir, (b) una función específica y (μ) valor predicho (de un rango continuo de valores). 
-            - Función logística: La sigmoide transforma valores en probabilidades entre 0 y 1, útiles para la clasificación, su ecuación: σ (x) = 1/(1+e^-x)
-            - Función logit: Convierte probabilidades en logaritmos de razones, mostrando la influencia de las variables, su ecuación: logit p = σ(p)^-1 = ln(p/(1–p))
-            - Pérdida logarítmica: Mide la diferencia entre probabilidades predichas y reales, guiando el entrenamiento del modelo.
-            - Proceso de entrenamiento: Ajusta parámetros minimizando la pérdida, usando métodos como descenso de gradiente o máxima verosimilitud.
-        </p>
+            <li><b>Función logística:</b> La sigmoide transforma valores en probabilidades entre 0 y 1, útiles para la clasificación, su ecuación: σ (x) = 1/(1+e^-x)
+            <li><b>Función logit:</b> Convierte probabilidades en logaritmos de razones, mostrando la influencia de las variables, su ecuación: logit p = σ(p)^-1 = ln(p/(1–p))
+            <li><b>Pérdida logarítmica:</b> Mide la diferencia entre probabilidades predichas y reales, guiando el entrenamiento del modelo.
+            <li><b>Proceso de entrenamiento:</b> Ajusta parámetros minimizando la pérdida, usando métodos como descenso de gradiente o máxima verosimilitud.
+        </ul>
+         </p>
          <h2>Ventajas</h2>
         <p>
             - Es un modelo fácil de implementar y optimizar, funciona de manera estable incluso con datos imperfectos y ofrece resultados útiles 
