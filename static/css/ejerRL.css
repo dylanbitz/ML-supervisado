@@ -85,3 +85,121 @@ nav a
 .desplegable-contenido li a:hover {
     background: #555;
 }
+
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #F5F1ED;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(112, 121, 140, 0.08);
+}
+
+section {
+    margin-bottom: 32px;
+    padding: 18px 0;
+    border-bottom: 1px solid #A99985;
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+h1, h2 {
+    color: #70798C;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(112, 121, 140, 0.07);
+}
+
+th, td {
+    padding: 8px 12px;
+    text-align: center;
+    border-bottom: 1px solid #A99985;
+}
+
+th {
+    background: #70798C;
+    color: #fff;
+    font-weight: 500;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+img[alt="matriz-confusion"] {
+    display: block;
+    margin: 18px auto;
+    max-width: 350px;
+    border: 2px solid #A99985;
+    border-radius: 6px;
+    background: #fff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
+    background: #fff;
+    padding: 18px 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(112, 121, 140, 0.07);
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    color: #252323;
+}
+
+input[type="number"], select {
+    margin-top: 6px;
+    padding: 7px 10px;
+    border: 1px solid #A99985;
+    border-radius: 4px;
+    background: #F5F1ED;
+    font-size: 1em;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
+    padding: 10px 0;
+    background: #70798C;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+    background: #A99985;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 1.08em;
+    color: #252323;
+}
+
+footer {
+    margin-top: 30px;
+    padding: 12px 0;
+    text-align: center;
+    background: #A99985;
+    color: #fff;
+    font-size: 1em;
+}
