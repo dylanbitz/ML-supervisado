@@ -55,7 +55,7 @@ def caso4():
 def conceptoBasico():
     link_estilos = "../static/css/conceptBasic.css"
     return render_template(
-        "conceptBasic.html",
+        "conceptBasic-lin.html",
         link=link_estilos,
         
     )
@@ -71,36 +71,14 @@ def ejercicioPractico():
         peso = float(request.form["peso"])
         prediccion = RegresionLineal.prediccion(velocidad, peso)
     return render_template(
-        "ejercicio.html",
+        "ejercicio-lin.html",
         link=link_estilos,
         grafico=RegresionLineal.graficaModelo(),
         velocidad=velocidad,
         peso=peso,
         resultado=round(prediccion, 2),
     )
-@app.get('/regresion-logistica-conceptBasic')
-def comBasRL():
-    link_estilos = "../static/css/comBasRL.css"
-   
-    return render_template(
-        "comBasRL.html",
-        link=link_estilos,
-    )
 
-
-@app.route('/regresion-logistica-ejercicio', methods=['GET', 'POST'])
-def ejerRL():
-    link_estilos = "../static/css/ejerRL.css"
-   
-
-    return render_template(
-        "ejerRL.html",
-        link=link_estilos,
-    )
-    
-    
-    
-    
 @app.get('/regresion-logistica-conceptBasic')
 def conceptoBasico_logistica():
     link_estilos = "../static/css/conceptBasic.css"
@@ -108,6 +86,26 @@ def conceptoBasico_logistica():
         "conceptBasic-log.html",
         link=link_estilos,
         
+    )
+
+@app.route('/regresion-logistica-ejercicio', methods=['GET', 'POST'])
+def ejercicioPractico_logistica():
+    link_estilos = "../static/css/ejerRL.css"
+    accuracy, report, _ = RegresionLogistica.evaluate()
+    resul = 0
+    probabilidad = 0
+    if request.method == 'POST':
+        values = []
+        for res in request.form.values():
+            values.append(res)
+        _, probabilidad, resul = RegresionLogistica.predict_label(*values)
+    return render_template(
+        "ejercicio-log.html",
+        link=link_estilos,
+        exactitud=accuracy,
+        reporte=report,
+        proba=probabilidad*100,
+        resultado=resul,
     )
 
 if __name__ == '__main__':
