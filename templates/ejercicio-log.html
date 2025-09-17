@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block body %}
+<header>
+    <nav>
+        <img src="../static/images/ML-act128.png" alt="logo-actividad">
+        <ul class="navbar">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="{{ url_for('caso1') }}">Caso 1</a></li>
+            <li><a href="{{ url_for('caso2') }}">Caso 2</a></li>
+            <li><a href="{{ url_for('caso3') }}">Caso 3</a></li>
+            <li><a href="{{ url_for('caso4') }}"></a>Caso 4</li>
+            <!--!Regresión Lineal-->
+            <li class="menu-desplegable">
+                <a href="#">Regresión Lineal <span class="flecha"></span></a>
+                <ul class="desplegable-contenido">
+                    <li><a href="{{ url_for('conceptoBasico') }}">Conceptos básicos</a></li>
+                    <li><a href="{{ url_for('ejercicioPractico') }}">Ejercicio Práctico</a></li>
+                </ul>
+            </li>
+            <!--!Regresión Logística-->
+            <li class="menu-desplegable">
+                <a href="#">Regresión Logística <span class="flecha"></span></a>
+                <ul class="desplegable-contenido">
+                    <li><a href="{{ url_for('conceptoBasico_logistica') }}">Conceptos básicos</a></li>
+                    <li><a href="{{ url_for('ejercicioPractico_logistica') }}">Ejercicio Práctico</a></li>
+                </ul>
+            </li>
+        </ul>
+        <img src="../static/images/CunLogo.png" alt="UniLogo" class="UniLogo">
+    </nav>
+</header>
+<main>
+    <section>
+        <h1>Descripción del dataset</h1>
+        <p>
+            El dataset utilizado para entrenar el modelo de regresión logística contiene información clínica y demográfica de pacientes. Incluye variables como edad, género, presencia de hipertensión y enfermedades cardíacas, índice de masa corporal (BMI), nivel de hemoglobina (HbA1c), nivel de glucosa en sangre y antecedentes de tabaquismo. La columna objetivo <b>diabetes</b> indica si el paciente tiene o no diabetes (0: No, 1: Sí).
+        </p>
+    </section>
+    <section>
+        <h1>Evaluación del modelo</h1>
+        <p>{{exactitud}}</p>
+        <table>
+            <tr>
+                <th>Clase</th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>F1-Score</th>
+                <th>Support</th>
+            </tr>
+
+            {% for clase, valores in reporte.items() %}
+            {% if valores is mapping %}
+            <tr>
+                <td>{{ clase }}</td>
+                <td>{{ "%.2f"|format(valores.get("precision", "")) }}</td>
+                <td>{{ "%.2f"|format(valores.get("recall", "")) }}</td>
+                <td>{{ "%.2f"|format(valores.get("f1-score", "")) }}</td>
+                <td>{{ valores.get("support", "")|int }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td>{{ clase }}</td>
+                <td colspan="4">{{ "%.2f"|format(valores) }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+        <h2>Matriz de confusión:</h2>
+        <img src="../static/images/logistica-matrizConfu.png" alt="matriz-confusion">
+    </section>
+    <section>
+        <h1>Predicción: ¿Tiene diabetes?</h1>
+        <form method="POST" action="">
+            <label for="age">
+                <span>Por favor introduce la edad</span>
+                <input type="number" id="age" name="age">
+            </label>
+            <label for="hypertension">
+                <span>¿Tiene hipertensión?</span>
+                <select name="hypertension" id="hypertension">
+                    <option value="1">Sí</option>
+                    <option value="0">No</option>
+                </select>
+            </label>
+            <label for="heart_disease">
+                <span>¿Tiene problemas/enfermedades del corazón?</span>
+                <select name="heart_disease" id="heart_disease">
+                    <option value="1">Sí</option>
+                    <option value="0">No</option>
+                </select>
+            </label>
+            <label for="bmi">
+                <span>Por favor ingrese el índice de masa corporal (BMI)</span>
+                <input type="number" id="bmi" name="bmi" step="0.01">
+            </label>
+            <label for="HbA1c_level">
+                <span>Por favor ingrese el nivel de hemoglobina (HbA1c)</span>
+                <input type="number" id="HbA1c_level" name="HbA1c_level" step="0.01">
+            </label>
+            <label for="blood_glucose_level">
+                <span>Por favor ingrese el nivel de glucosa en sangre</span>
+                <input type="number" id="blood_glucose_level" name="blood_glucose_level" step="0.01">
+            </label>
+            <label for="gender">
+                <span>Ingrese el género</span>
+                <select name="gender" id="gender">
+                    <option value="Female">Mujer</option>
+                    <option value="Male">Hombre</option>
+                    <option value="Other">Otro</option>
+                </select>
+            </label>
+            <label for="smoking_history">
+                <span>¿Qué tan frecuente fuma?</span>
+                <select name="smoking_history" id="smoking_history">
+                    <option value="No Info">No sabe</option>
+                    <option value="never">Nunca</option>
+                    <option value="former">Fumaba</option>
+                    <option value="current">Muy frecuente</option>
+                    <option value="not current">No tan frecuente</option>
+                </select>
+            </label>
+            <input type="submit" value="Predecir">
+        </form>
+        {% if resultado != 0 %}
+            <p>
+                Probabilidad: {{proba}} %
+            </p>
+            <p>
+                Predicción: {{resultado}}
+            </p>
+        {% endif %}
+    </section>
+</main>
+<footer>
+    <p>Universidad de Cundinamarca | Machine Learning | Dylan Bielostozky, Mayra Caipe, Pedro Casas, Miguel González</p>
+</footer>
+{% endblock %}

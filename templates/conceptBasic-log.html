@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<header>
+    <nav>
+        <img src="../static/images/ML-act128.png" alt="logo-actividad">
+        <ul class="navbar">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="{{ url_for('caso1') }}">Caso 1</a></li>
+            <li><a href="{{ url_for('caso2') }}">Caso 2</a></li>
+            <li><a href="{{ url_for('caso3') }}">Caso 3</a></li>
+            <li><a href="{{ url_for('caso4') }}"></a>Caso 4</li>
+            <li class="menu-desplegable">
+                <a href="#">Regresión Logistica <span class="flecha"></span></a>
+                <ul class="desplegable-contenido">
+                    <li><a href="{{ url_for('conceptoBasico') }}">Conceptos básicos</a></li>
+                    <li><a href="{{ url_for('ejercicioPractico') }}">Ejercicio Práctico</a></li>
+                </ul>
+            </li>
+            <li class="menu-desplegable"> 
+                <a href="#">Regresión Logística <span class="flecha"></span></a>
+                <ul class="desplegable-contenido">
+                    <li><a href="{{ url_for('conceptoBasico_logistica') }}">Conceptos básicos</a></li>
+                    <li><a href="{{ url_for('ejercicioPractico_logistica') }}">Ejercicio Práctico</a></li>
+                </ul>
+            </li>
+        </ul>
+        <img src="../static/images/CunLogo.png" alt="UniLogo" class="UniLogo">
+    </nav>
+</header>
+
+<main class="contenido">
+    <section>
+        <h1>Conceptos básicos de Regresión Logistica</h1>
+
+        <h2>¿Qué es la regresión logistica?</h2>
+        <p>
+            La regresión logística es un algoritmo de clasificación supervisada que predice la probabilidad de una variable dependiente categórica binaria, 
+            como sí/no o 0/1. Es uno de los métodos más utilizados por su simplicidad y utilidad en problemas de clasificación binaria, como la detección 
+            de cáncer o la probabilidad de un evento.
+        </p>
+        <h2>Caracteristicas</h2>
+        <p>
+            - Variable de salida binaria: La regresión logística se aplica solo a problemas con dos clases posibles, como 0/1 o sí/no. 
+            El modelo predice una probabilidad y clasifica según un umbra
+            - Eliminación de ruido y valores atípicos: Los datos extremos afectan la precisión del modelo, por lo que es importante limpiar 
+            y depurar el dataset antes del entrenamiento.
+            - Relación con distribución gaussiana: El modelo funciona mejor si las variables tienen una relación lineal con la salida. 
+            Transformar los datos puede mejorar el ajuste.
+            - Problemas con entradas altamente correlacionadas: La multicolinealidad provoca sobreajuste e inestabilidad en los coeficientes. 
+            Se deben eliminar o combinar variables redundantes.
+            - Posible falta de convergencia: El modelo puede no llegar a una solución estable con datos escasos o muy correlacionados. 
+            Se soluciona con regularización y mejor preparación de datos.
+        </p>
+        <h2>Tipos</h2>
+        <p>
+            Binaria: Dos posibles resultados (ej. spam/no spam).
+            Multinomial: Tres o más resultados sin orden (ej. preferencia de género de películas).
+            Ordinal: Tres o más resultados con orden (ej. calificaciones A–F o escalas 1–5).
+        </p>
+         <h2>¿Como funciona?</h2>
+        <p>
+            - Variables predictoras: Son las características usadas por el modelo, como edad, ingresos o historial de navegación.
+            - Representación de características: Es una combinación específica de valores de las variables predictoras en un caso concreto.
+            - Función de enlace: Conecta variables de entrada con probabilidades; en regresión logística suele ser la función sigmoide, su ecuación: θ = b(μ)
+            Donde (θ) probabilidades por categoría de predecir, (b) una función específica y (μ) valor predicho (de un rango continuo de valores). 
+            - Función logística: La sigmoide transforma valores en probabilidades entre 0 y 1, útiles para la clasificación, su ecuación: σ (x) = 1/(1+e^-x)
+            - Función logit: Convierte probabilidades en logaritmos de razones, mostrando la influencia de las variables, su ecuación: logit p = σ(p)^-1 = ln(p/(1–p))
+            - Pérdida logarítmica: Mide la diferencia entre probabilidades predichas y reales, guiando el entrenamiento del modelo.
+            - Proceso de entrenamiento: Ajusta parámetros minimizando la pérdida, usando métodos como descenso de gradiente o máxima verosimilitud.
+        </p>
+         <h2>Ventajas</h2>
+        <p>
+            - Es un modelo fácil de implementar y optimizar, funciona de manera estable incluso con datos imperfectos y ofrece resultados útiles 
+            en diversas aplicaciones de clasificación binaria.
+            - Además de clasificar, permite identificar qué variables influyen más en el resultado y en qué dirección lo hacen, aportando valor al 
+            análisis de los datos.
+        </p>
+         <h2>Desventajas</h2>
+        <p>
+            - Solo predice clases, no valores continuos; para estos casos, se requieren modelos como la regresión lineal.
+            - El modelo asume que las variables tienen una relación lineal con la probabilidad, lo cual rara vez ocurre en datos reales, 
+            lo que puede reducir la precisión si no se ajusta o transforma la información.
+            - Cuando las variables no son independientes o no siguen relaciones lineales, el modelo puede fallar o capturar solo una parte 
+            limitada de los patrones.
+            - Con datos muy grandes o complejos, el modelo puede memorizar el ruido en lugar de los patrones reales, perdiendo capacidad 
+            de generalización; técnicas como la regularización ayudan a mitigarlo.
+        </p>
+        <h2>Modelo logistico binario</h2>
+        <p>
+            Este modelo estima la probabilidad de una respuesta con dos posibles resultados (sí/no, 0/1) a partir de una o más variables independientes. 
+            Es un análisis predictivo que describe y explica la relación entre una variable dependiente binaria y variables de distintos tipos. Se aplica 
+            en problemas de clasificación como detección de spam, diagnóstico de enfermedades o predicción del comportamiento de clientes.
+        </p>
+        <h2>Probabilidad sigmoide/logit</h2>
+        <p>
+            La función sigmoide devuelve un valor entre 0 y 1, interpretado como probabilidad, ademas, es la base matemática que asegura que los 
+            resultados de la regresión logística siempre estén dentro del rango de probabilidades, se expresa mediante esta formula: f(x)=1/1+e^−x​.
+            Para analizar la relación entre variables predictoras y probabilidades, utiliza la función logit, que convierte probabilidades en 
+            logaritmos de razones de probabilidad.
+        </p>
+        <h2>Referencias</h2>
+        <ol>
+            <li>Grammarly. (2024, 4 de octubre). <em>Logistic Regression Explained: How It Works in Machine Learning</em>. Grammarly. <a href="https://www.grammarly.com/blog/ai/what-is-logistic-regression/" target="_blank">https://www.grammarly.com/blog/ai/what-is-logistic-regression/</a></li>
+            <li>ligdieli. (2019, 28 de junio). <em>Regresión Logística – Teoría</em>. AprendeIA. <a href="https://aprendeia.com/2019/06/28/algoritmo-regresion-logistica-machine-learning-teoria/" target="_blank">https://aprendeia.com/2019/06/28/algoritmo-regresion-logistica-machine-learning-teoria/</a></li>
+            <li>IBM. (s. f.). <em>¿Qué es la regresión logística?</em> IBM Think. <a href="https://www.ibm.com/es-es/think/topics/logistic-regression" target="_blank">https://www.ibm.com/es-es/think/topics/logistic-regression</a></li>
+            <li>Google Developers. (s. f.). <em>Logistic regression: Cómo calcular una probabilidad con la función sigmoidea</em>. Google for Developers. <a href="https://developers.google.com/machine-learning/crash-course/logistic-regression/sigmoid-function?hl=es-419" target="_blank">https://developers.google.com/machine-learning/crash-course/logistic-regression/sigmoid-function?hl=es-419</a></li>
+        </ol>
+    </section>
+</main>
+<footer>
+    <p>Universidad de Cundinamarca | Machine Learning | Dylan Bielostozky, Mayra Caipe, Pedro Casas, Miguel González</p>
+</footer>
+
+{% endblock %}

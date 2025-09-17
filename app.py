@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, request
-import ModeloEntrenmiento
+import RegresionLineal
+import RegresionLogistica
 
 app = Flask(__name__)
 
@@ -54,7 +55,7 @@ def caso4():
 def conceptoBasico():
     link_estilos = "../static/css/conceptBasic.css"
     return render_template(
-        "conceptBasic.html",
+        "conceptBasic-lin.html",
         link=link_estilos,
         
     )
@@ -68,14 +69,43 @@ def ejercicioPractico():
     if request.method == 'POST':
         velocidad = float(request.form["velocidad"])
         peso = float(request.form["peso"])
-        prediccion = ModeloEntrenmiento.prediccion(velocidad, peso)
+        prediccion = RegresionLineal.prediccion(velocidad, peso)
     return render_template(
-        "ejercicio.html",
+        "ejercicio-lin.html",
         link=link_estilos,
-        grafico=ModeloEntrenmiento.graficaModelo(),
+        grafico=RegresionLineal.graficaModelo(),
         velocidad=velocidad,
         peso=peso,
         resultado=round(prediccion, 2),
+    )
+
+@app.get('/regresion-logistica-conceptBasic')
+def conceptoBasico_logistica():
+    link_estilos = "../static/css/conceptBasic.css"
+    return render_template(
+        "conceptBasic-log.html",
+        link=link_estilos,
+        
+    )
+
+@app.route('/regresion-logistica-ejercicio', methods=['GET', 'POST'])
+def ejercicioPractico_logistica():
+    link_estilos = "../static/css/ejerRL.css"
+    accuracy, report, _ = RegresionLogistica.evaluate()
+    resul = 0
+    probabilidad = 0
+    if request.method == 'POST':
+        values = []
+        for res in request.form.values():
+            values.append(res)
+        _, probabilidad, resul = RegresionLogistica.predict_label(*values)
+    return render_template(
+        "ejercicio-log.html",
+        link=link_estilos,
+        exactitud=accuracy,
+        reporte=report,
+        proba=probabilidad*100,
+        resultado=resul,
     )
 
 if __name__ == '__main__':
