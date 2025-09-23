@@ -107,6 +107,25 @@ def ejercicioPractico_logistica():
         proba=probabilidad*100,
         resultado=resul,
     )
+    
+@app.get('/decision-tree/conceptBasic')
+def conceptoBasico_decTree():
+    link_estilos = "../static/css/conceptBasic.css"
+    return render_template(
+        "conceptBasic-decTree.html",
+        link=link_estilos,
+        
+    )
+
+@app.route('/decision-tree/ejercicio', methods=['GET', 'POST'])
+def ejercicioPractico_decTree():
+    link_estilos = "../static/css/ejercicio-decTree.css"
+    
+    return render_template(
+        "ejercicio-decTree.html",
+        link=link_estilos,
+        
+    )
 
 if __name__ == '__main__':
     app.run(debug=True)
