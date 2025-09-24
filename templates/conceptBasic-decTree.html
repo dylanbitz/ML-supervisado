@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<header>
+    <nav>
+        <img src="../static/images/ML-act128.png" alt="logo-actividad">
+        <ul class="navbar">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="{{ url_for('caso1') }}">Caso 1</a></li>
+            <li><a href="{{ url_for('caso2') }}">Caso 2</a></li>
+            <li><a href="{{ url_for('caso3') }}">Caso 3</a></li>
+            <li><a href="{{ url_for('caso4') }}"></a>Caso 4</li>
+            <li class="menu-desplegable">
+                <a href="#">Regresión Logistica <span class="flecha"></span></a>
+                <ul class="desplegable-contenido">
+                    <li><a href="{{ url_for('conceptoBasico') }}">Conceptos básicos</a></li>
+                    <li><a href="{{ url_for('ejercicioPractico') }}">Ejercicio Práctico</a></li>
+                </ul>
+            </li>
+            <li class="menu-desplegable"> 
+                <a href="#">Regresión Logística <span class="flecha"></span></a>
+                <ul class="desplegable-contenido">
+                    <li><a href="{{ url_for('conceptoBasico_logistica') }}">Conceptos básicos</a></li>
+                    <li><a href="{{ url_for('ejercicioPractico_logistica') }}">Ejercicio Práctico</a></li>
+                </ul>
+            </li>
+                    <li class="menu-desplegable"> 
+                <a href="#">Tipos de Algoritmos de Clasificación <span class="flecha"></span></a>
+                <ul class="desplegable-contenido">
+                    <li><a href="{{ url_for('conceptoBasico_decTree') }}">Conceptos básicos</a></li>
+                    <li><a href="{{ url_for('ejercicioPractico_decTree') }}">Ejercicio Práctico</a></li>
+                </ul>
+            </li>  
+        <img src="../static/images/CunLogo.png" alt="UniLogo" class="UniLogo">
+    </nav>
+</header>
+<div class="iframe">
+    <iframe width="600" height="400" frameBorder="0" 
+        src="https://www.mindmeister.com/maps/public_map_shell/3823211526/clasificaci-n?width=600&height=400&z=auto&no_share=1&no_logo=1" 
+        scrolling="no" style="overflow:hidden;margin-bottom:5px">
+        Tu navegador no puede mostrar marcos. Visita 
+        <a href="https://www.mindmeister.com/3823211526/clasificaci-n" target="_blank">CLASIFICACIÓN</a> en MindMeister.
+    </iframe>
+</div>
+{% endblock %}

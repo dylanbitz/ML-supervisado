@@ -23,8 +23,14 @@
                     <li><a href="{{ url_for('conceptoBasico_logistica') }}">Conceptos básicos</a></li>
                     <li><a href="{{ url_for('ejercicioPractico_logistica') }}">Ejercicio Práctico</a></li>
                 </ul>
-            </li>
-        </ul>
+            </ul>
+             <li class="menu-desplegable"> 
+                <a href="#">Algoritmos de Clasificación <span class="flecha"></span></a>
+                <ul class="desplegable-contenido">
+                    <li><a href="{{ url_for('conceptoBasico_decTree') }}">Conceptos básicos</a></li>
+                    <li><a href="{{ url_for('ejercicioPractico_decTree') }}">Ejercicio Práctico</a></li>
+                </ul>
+            </li>  
         <img src="../static/images/CunLogo.png" alt="UniLogo" class="UniLogo">
     </nav>
 </header>

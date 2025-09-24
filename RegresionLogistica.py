@@ -27,9 +27,9 @@ result = model.fit(X_train, y_train) # entrenamiento del modelo
 
 # buscamos imprimir en consola los resultados brutos, esto no será visto por el usuario final, para esto creamos la función evaluate
 prediccion_test = model.predict(X_test)
-print(f"La exactitud del modelo es: {accuracy_score(y_test, prediccion_test) * 100:.2f}%")
+'''print(f"La exactitud del modelo es: {accuracy_score(y_test, prediccion_test) * 100:.2f}%")
 print(f"Reporte de clasificación:\n {classification_report(y_test, prediccion_test, target_names=['No Diabetes', 'Diabetes'])}")
-print(f"Confusion Matrix:\n {confusion_matrix(y_test, prediccion_test)}")
+print(f"Confusion Matrix:\n {confusion_matrix(y_test, prediccion_test)}")'''
 
 def evaluate():
     '''

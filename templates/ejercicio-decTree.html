@@ -1,0 +1,390 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<header>
+    <nav>
+        <img src="../static/images/ML-act128.png" alt="logo-actividad">
+        <ul class="navbar">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="{{ url_for('caso1') }}">Caso 1</a></li>
+            <li><a href="{{ url_for('caso2') }}">Caso 2</a></li>
+            <li><a href="{{ url_for('caso3') }}">Caso 3</a></li>
+            <li><a href="{{ url_for('caso4') }}"></a>Caso 4</li>
+            <li class="menu-desplegable">
+                <a href="#">Regresión Logistica <span class="flecha"></span></a>
+                <ul class="desplegable-contenido">
+                    <li><a href="{{ url_for('conceptoBasico') }}">Conceptos básicos</a></li>
+                    <li><a href="{{ url_for('ejercicioPractico') }}">Ejercicio Práctico</a></li>
+                </ul>
+            </li>
+            <li class="menu-desplegable">
+                <a href="#">Regresión Logística <span class="flecha"></span></a>
+                <ul class="desplegable-contenido">
+                    <li><a href="{{ url_for('conceptoBasico_logistica') }}">Conceptos básicos</a></li>
+                    <li><a href="{{ url_for('ejercicioPractico_logistica') }}">Ejercicio Práctico</a></li>
+                </ul>
+            </li>
+            <li class="menu-desplegable">
+                <a href="#">Tipos de Algoritmos de Clasificación <span class="flecha"></span></a>
+                <ul class="desplegable-contenido">
+                    <li><a href="{{ url_for('conceptoBasico_decTree') }}">Conceptos básicos</a></li>
+                    <li><a href="{{ url_for('ejercicioPractico_decTree') }}">Ejercicio Práctico</a></li>
+                </ul>
+            </li>
+            <img src="../static/images/CunLogo.png" alt="UniLogo" class="UniLogo">
+    </nav>
+</header>
+<main class="contenido">
+    <section>
+        <h1>Descripción del dataset</h1>
+        <p>
+            El dataset empleado para el entrenamiento del modelo de clasificación contiene información académica,
+            socioeconómica y demográfica de estudiantes universitarios con el fin de servir como base para modelos
+            predictivos que buscan anticipar la probabilidad de <b>graduación</b>, <b>deserción</b> o
+            <b>permanencia</b> en la institución educativa.
+        </p>
+    </section>
+    <section>
+        <h1>Evaluación del modelo Decision Tree</h1>
+        <p>{{ exactitud }}</p>
+
+        <h2>Reporte de Clasificación</h2>
+        <table border="1" cellpadding="6" cellspacing="0">
+            <tr>
+                <th>Clase</th>
+                <th>Precisión</th>
+                <th>Recall</th>
+                <th>F1-Score</th>
+                <th>Support</th>
+            </tr>
+            {% for clase, valores in reporte.items() %}
+            {% if valores is mapping %}
+            <tr>
+                <td>{{ clase }}</td>
+                <td>{{ "%.2f"|format(valores.get("precision", "")) }}</td>
+                <td>{{ "%.2f"|format(valores.get("recall", "")) }}</td>
+                <td>{{ "%.2f"|format(valores.get("f1-score", "")) }}</td>
+                <td>{{ valores.get("support", "")|int }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td>{{ clase }}</td>
+                <td colspan="4">{{ "%.2f"|format(valores) }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+        <h2>Matriz de Confusión</h2>
+        <img src="../static/images/decTree-matrizConfu.png" alt="matriz-confusion">
+    </section>
+    <!-- Formulario de Predicción -->
+    <section>
+        <h1>Predicción: ¿Cuál será el desenlace académico del estudiante?</h1>
+
+        <!-- Formulario corregido -->
+        <form method="POST" action="/decision-tree/ejercicio">
+            <!-- Variables categóricas -->
+            <label for="Marital_status">
+                <span>Estado civil (1 – soltero 2 – casado 3 – viudo/a 4 – divorciado 5 – union libre 6 – separados
+                    legalmente)</span>
+                <input type="number" id="Marital_status" name="Marital status" min="0" required>
+            </label>
+
+            <label for="Application_mode">
+                <span>Modo de aplicación</span>
+                <ul>
+                    <li>1 - 1ª fase - contingente general</li>
+                    <li>2 - Ordenanza No. 612/93</li>
+                    <li>5 - 1ª fase - contingente especial (Islas Azores)</li>
+                    <li>7 - Titulares de otros cursos superiores</li>
+                    <li>10 - Ordenanza No. 854-B/99</li>
+                    <li>15 - Estudiante internacional (licenciatura)</li>
+                    <li>16 - 1ª fase - contingente especial (Isla de Madeira)</li>
+                    <li>17 - 2ª fase - contingente general</li>
+                    <li>18 - 3ª fase - contingente general</li>
+                    <li>26 - Ordenanza No. 533-A/99, ítem b2 (Plan Diferente)</li>
+                    <li>27 - Ordenanza No. 533-A/99, ítem b3 (Otra Institución)</li>
+                    <li>39 - Mayores de 23 años</li>
+                    <li>42 - Traslado</li>
+                    <li>43 - Cambio de curso</li>
+                    <li>44 - Titulares de diploma de especialización tecnológica</li>
+                    <li>51 - Cambio de institución/curso</li>
+                    <li>53 - Titulares de diploma de ciclo corto</li>
+                    <li>57 - Cambio de institución/curso (Internacional)</li>
+                </ul>
+                <input type="number" id="Application_mode" name="Application mode" min="0" required>
+            </label>
+
+            <label for="Application_order">
+                <span>Orden de aplicación (0 primer intento a 9 último intento)</span>
+                <input type="number" id="Application_order" name="Application order" min="1" required>
+            </label>
+
+            <label for="evening_attendance">
+                <span>Asistencia nocturna</span>
+                <select id="evening_attendance" name="evening attendance">
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </label>
+
+            <label for="Previous_qualification">
+                <span>Nivel de educación anterior</span>
+                <ul>
+                    <li>1 - Enseñanza secundaria</li>
+                    <li>2 - Educación superior - licenciatura</li>
+                    <li>3 - Educación superior - grado</li>
+                    <li>4 - Educación superior - máster</li>
+                    <li>5 - Educación superior - doctorado</li>
+                    <li>6 - Frecuencia de educación superior</li>
+                    <li>9 - 12º año de escolaridad - no completado</li>
+                    <li>10 - 11º año de escolaridad - no completado</li>
+                    <li>12 - Otro - 11º año de escolaridad</li>
+                    <li>14 - 10º año de escolaridad</li>
+                    <li>15 - 10º año de escolaridad - no completado</li>
+                    <li>19 - Educación básica 3er ciclo (9º/10º/11º año) o equivalente</li>
+                    <li>38 - Educación básica 2º ciclo (6º/7º/8º año) o equivalente</li>
+                    <li>39 - Curso de especialización tecnológica</li>
+                    <li>40 - Educación superior - grado (1er ciclo)</li>
+                    <li>42 - Curso técnico superior profesional</li>
+                    <li>43 - Educación superior - máster (2º ciclo)</li>
+                </ul>
+                <input type="number" id="Previous_qualification" name="Previous qualification" min="0" required>
+            </label>
+
+            <label for="Mother_occupation">
+                <span>Ocupación de la madre</span>
+                <ul>
+                    <li>0 - Estudiante</li>
+                    <li>1 - Representantes del Poder Legislativo y Órganos Ejecutivos, Directores, Directores y Gerentes
+                        Ejecutivos</li>
+                    <li>2 - Especialistas en Actividades Intelectuales y Científicas</li>
+                    <li>3 - Técnicos de Nivel Intermedio y Profesiones</li>
+                    <li>4 - Personal administrativo</li>
+                    <li>5 - Trabajadores de Servicios Personales, Seguridad y Vigilancia y Vendedores</li>
+                    <li>6 - Agricultores y Trabajadores Calificados en Agricultura, Pesca y Silvicultura</li>
+                    <li>7 - Trabajadores Calificados en Industria, Construcción y Artesanos</li>
+                    <li>8 - Operadores de Instalaciones y Máquinas y Montadores</li>
+                    <li>9 - Trabajadores No Calificados</li>
+                    <li>10 - Profesiones de las Fuerzas Armadas</li>
+                    <li>90 - Otra Situación</li>
+                    <li>99 - (blanco)</li>
+                    <li>122 - Profesionales de la salud</li>
+                    <li>123 - Profesores</li>
+                    <li>125 - Especialistas en tecnologías de la información y comunicación (TIC)</li>
+                    <li>131 - Técnicos y profesiones de nivel intermedio de ciencia e ingeniería</li>
+                    <li>132 - Técnicos y profesionales, de nivel intermedio de salud</li>
+                    <li>134 - Técnicos de nivel intermedio de servicios legales, sociales, deportivos, culturales y
+                        similares</li>
+                    <li>141 - Trabajadores de oficina, secretarios en general y operadores de procesamiento de datos
+                    </li>
+                    <li>143 - Operadores de servicios de datos, contabilidad, estadística, financieros y relacionados
+                        con el registro</li>
+                    <li>144 - Otro personal de apoyo administrativo</li>
+                    <li>151 - Trabajadores de servicios personales</li>
+                    <li>152 - Vendedores</li>
+                    <li>153 - Trabajadores de cuidado personal y similares</li>
+                    <li>171 - Trabajadores de la construcción calificados y similares, excepto electricistas</li>
+                    <li>173 - Trabajadores calificados en impresión, fabricación de instrumentos de precisión, joyeros,
+                        artesanos y similares</li>
+                    <li>175 - Trabajadores en procesamiento de alimentos, carpintería, confección y otras industrias y
+                        artesanías</li>
+                    <li>191 - Trabajadores de limpieza</li>
+                    <li>192 - Trabajadores no calificados en agricultura, producción animal, pesca y silvicultura</li>
+                    <li>193 - Trabajadores no calificados en industria extractiva, construcción, manufactura y
+                        transporte</li>
+                    <li>194 - Asistentes de preparación de comidas</li>
+                </ul>
+                <input type="number" id="Mother_occupation" name="Mother's occupation" min="0" required>
+            </label>
+
+            <label for="Father_occupation">
+                <span>Ocupación del padre</span>
+                <ul>
+                    <li>0 - Estudiante</li>
+                    <li>1 - Representantes del Poder Legislativo y Órganos Ejecutivos, Directores, Directores y Gerentes
+                        Ejecutivos</li>
+                    <li>2 - Especialistas en Actividades Intelectuales y Científicas</li>
+                    <li>3 - Técnicos de Nivel Intermedio y Profesiones</li>
+                    <li>4 - Personal administrativo</li>
+                    <li>5 - Trabajadores de Servicios Personales, Seguridad y Vigilancia y Vendedores</li>
+                    <li>6 - Agricultores y Trabajadores Calificados en Agricultura, Pesca y Silvicultura</li>
+                    <li>7 - Trabajadores Calificados en Industria, Construcción y Artesanos</li>
+                    <li>8 - Operadores de Instalaciones y Máquinas y Montadores</li>
+                    <li>9 - Trabajadores No Calificados</li>
+                    <li>10 - Profesiones de las Fuerzas Armadas</li>
+                    <li>90 - Otra Situación</li>
+                    <li>99 - (blanco)</li>
+                    <li>101 - Oficiales de las Fuerzas Armadas</li>
+                    <li>102 - Sargentos de las Fuerzas Armadas</li>
+                    <li>103 - Otro personal de las Fuerzas Armadas</li>
+                    <li>112 - Directores de servicios administrativos y comerciales</li>
+                    <li>114 - Directores de hoteles, restauración, comercio y otros servicios</li>
+                    <li>121 - Especialistas en ciencias físicas, matemáticas, ingeniería y técnicas relacionadas</li>
+                    <li>122 - Profesionales de la salud</li>
+                    <li>123 - Profesores</li>
+                    <li>124 - Especialistas en finanzas, contabilidad, organización administrativa, relaciones públicas
+                        y comerciales</li>
+                    <li>131 - Técnicos y profesiones de nivel intermedio de ciencia e ingeniería</li>
+                    <li>132 - Técnicos y profesionales, de nivel intermedio de salud</li>
+                    <li>134 - Técnicos de nivel intermedio de servicios legales, sociales, deportivos, culturales y
+                        similares</li>
+                    <li>135 - Técnicos en tecnologías de la información y la comunicación</li>
+                    <li>141 - Trabajadores de oficina, secretarios en general y operadores de procesamiento de datos
+                    </li>
+                    <li>143 - Operadores de servicios de datos, contabilidad, estadística, financieros y relacionados
+                        con el registro</li>
+                    <li>144 - Otro personal de apoyo administrativo</li>
+                    <li>151 - Trabajadores de servicios personales</li>
+                    <li>152 - Vendedores</li>
+                    <li>153 - Trabajadores de cuidado personal y similares</li>
+                    <li>154 - Personal de servicios de protección y seguridad</li>
+                    <li>161 - Agricultores orientados al mercado y trabajadores calificados en producción agrícola y
+                        animal</li>
+                    <li>163 - Agricultores, criadores de ganado, pescadores, cazadores y recolectores, de subsistencia
+                    </li>
+                    <li>171 - Trabajadores de la construcción calificados y similares, excepto electricistas</li>
+                    <li>172 - Trabajadores calificados en metalurgia, metalistería y similares</li>
+                    <li>174 - Trabajadores calificados en electricidad y electrónica</li>
+                    <li>175 - Trabajadores en procesamiento de alimentos, carpintería, confección y otras industrias y
+                        artesanías</li>
+                    <li>181 - Operadores de plantas fijas y máquinas</li>
+                    <li>182 - Montadores</li>
+                    <li>183 - Conductores de vehículos y operadores de equipos móviles</li>
+                    <li>192 - Trabajadores no calificados en agricultura, producción animal, pesca y silvicultura</li>
+                    <li>193 - Trabajadores no calificados en industria extractiva, construcción, manufactura y
+                        transporte</li>
+                    <li>194 - Asistentes de preparación de comidas</li>
+                    <li>195 - Vendedores ambulantes (excepto comida) y proveedores de servicios callejeros</li>
+                </ul>
+                <input type="number" id="Father_occupation" name="Father's occupation" min="0" required>
+            </label>
+
+            <label for="Displaced">
+                <span>Desplazado</span>
+                <select id="Displaced" name="Displaced">
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </label>
+
+            <label for="Debtor">
+                <span>¿Tiene deudas?</span>
+                <select id="Debtor" name="Debtor">
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </label>
+
+            <label for="Tuition">
+                <span>Pago de matrícula al día</span>
+                <select id="Tuition" name="Tuition fees up to date">
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </label>
+
+            <label for="Gender">
+                <span>Género</span>
+                <select id="Gender" name="Gender">
+                    <option value="0">Masculino</option>
+                    <option value="1">Femenino</option>
+                </select>
+            </label>
+
+            <label for="Scholarship">
+                <span>¿Tiene beca?</span>
+                <select id="Scholarship" name="Scholarship holder">
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </label>
+
+            <label for="Age">
+                <span>Edad al matricularse</span>
+                <input type="number" id="Age" name="Age" min="16" required>
+            </label>
+
+            <!-- Variables numéricas relacionadas con materias -->
+            <h2>Primer semestre</h2>
+            <label for="1st_credit">
+                <span>Número de asignaturas posibles de acreditar - 1er semestre</span>
+                <input type="number" id="1st_credit" name="Curricular units 1st sem (credited)" min="0" required>
+            </label>
+
+            <label for="1st_enrolled">
+                <span>Número de asignaturas matriculadas - 1er semestre</span>
+                <input type="number" id="1st_enrolled" name="Curricular units 1st sem (enrolled)" min="0" required>
+            </label>
+
+            <label for="1st_eval">
+                <span>Evaluaciones - 1er semestre</span>
+                <input type="number" id="1st_eval" name="Curricular units 1st sem (evaluations)" min="0" required>
+            </label>
+
+            <label for="1st_approved">
+                <span>Materias aprobadas - 1er semestre</span>
+                <input type="number" id="1st_approved" name="Curricular units 1st sem (approved)" min="0" required>
+            </label>
+
+            <label for="1st_grade">
+                <span>Promedio de notas - 1er semestre</span>
+                <input type="number" step="0.01" id="1st_grade" name="Curricular units 1st sem (grade)" min="0" max="20"
+                    required>
+            </label>
+
+            <h2>Segundo semestre</h2>
+            <label for="2nd_credit">
+                <span>Número de asignaturas posibles de acreditar</span>
+                <input type="number" id="2nd_credit" name="Curricular units 2nd sem (credited)" min="0" required>
+            </label>
+
+            <label for="2nd_enrolled">
+                <span>Número de asignaturas matriculadas</span>
+                <input type="number" id="2nd_enrolled" name="Curricular units 2nd sem (enrolled)" min="0" required>
+            </label>
+
+            <label for="2nd_eval">
+                <span>Evaluaciones</span>
+                <input type="number" id="2nd_eval" name="Curricular units 2nd sem (evaluations)" min="0" required>
+            </label>
+
+            <label for="2nd_approved">
+                <span>Materias aprobadas</span>
+                <input type="number" id="2nd_approved" name="Curricular units 2nd sem (approved)" min="0" required>
+            </label>
+
+            <label for="2nd_grade">
+                <span>Promedio de notas</span>
+                <input type="number" step="0.01" id="2nd_grade" name="Curricular units 2nd sem (grade)" min="0" max="20"
+                    required>
+            </label>
+
+            <label for="2nd_without_eval">
+                <span>Sin evaluaciones</span>
+                <input type="number" id="2nd_without_eval" name="Curricular units 2nd sem (without evaluations)" min="0"
+                    required>
+            </label>
+
+            <h2>Contexto económico</h2>
+            <label for="GDP">
+                <span>Producto Interno Bruto (PIB)</span>
+                <input type="number" step="0.01" id="GDP" name="GDP" required>
+            </label>
+
+            <!-- Botón de envío -->
+            <input type="submit" value="Predecir desenlace">
+        </form>
+
+        {% if resultado != 0 %}
+        <h2>Resultado de la predicción</h2>
+        <p>Predicción: <strong>{{ resultado }}</strong></p>
+        <p>Probabilidad: <strong>{{ proba }} %</strong></p>
+        {% endif %}
+    </section>
+</main>
+<footer>
+    <p>Universidad de Cundinamarca | Machine Learning | Dylan Bielostozky, Mayra Caipe, Pedro Casas, Miguel González</p>
+</footer>
+{% endblock %}
