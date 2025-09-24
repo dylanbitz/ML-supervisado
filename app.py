@@ -109,7 +109,7 @@ def ejercicioPractico_logistica():
         proba=probabilidad*100,
         resultado=resul,
     )
-# ****************Decision Tree*******************
+    
 @app.get('/decision-tree/conceptBasic')
 def conceptoBasico_decTree():
     link_estilos = "../static/css/conceptBasic.css"
@@ -122,31 +122,19 @@ def conceptoBasico_decTree():
 @app.route('/decision-tree/ejercicio', methods=['GET', 'POST'])
 def ejercicioPractico_decTree():
     link_estilos = "../static/css/ejercicio-decTree.css"
-    
-    # Evaluación inicial
     accuracy, report, _ = DecisionTree.evaluate()
-
-    resul = None
-    probabilidad = None
-
+    resul = 0
+    probabilidad = 0
     if request.method == 'POST':
         features = request.form.to_dict()
-        resul, probabilidad, label = DecisionTree.predict_label(features)
-        return render_template(
-            "ejercicio-decTree.html",
-            link=link_estilos,
-            exactitud=accuracy,
-            reporte=report,
-            resultado=label,
-            proba=probabilidad
-        )
-
-    # GET por defecto
+        _, probabilidad, resul = DecisionTree.predict_label(features)
     return render_template(
         "ejercicio-decTree.html",
         link=link_estilos,
         exactitud=accuracy,
-        reporte=report
+        reporte=report,
+        proba=probabilidad*100,
+        resultado=resul,
     )
 
 
