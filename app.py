@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for, request
+import DecisionTree
 import RegresionLineal
 import RegresionLogistica
 import DecisionTree
@@ -121,15 +122,30 @@ def conceptoBasico_decTree():
 app.route('/decision-tree/ejercicio', methods=['GET', 'POST'])
 def ejercicioPractico_decTree():
     link_estilos = "../static/css/ejercicio-decTree.css"
+<<<<<<< HEAD
     
     # Evaluar el modelo Decision Tree
     accuracy, report, _ = DecisionTree.evaluate()
     
+=======
+    accuracy, report, _ = DecisionTree.evaluate()
+    resul = 0
+    probabilidad = 0
+    if request.method == 'POST':
+        features = request.form.to_dict()
+        _, probabilidad, resul = DecisionTree.predict_label(features)
+>>>>>>> c3ac480a38c680c83f3974fc09704e4f8ec8a806
     return render_template(
         "ejercicio-decTree.html",
         link=link_estilos,
         exactitud=accuracy,
+<<<<<<< HEAD
         reporte=report
+=======
+        reporte=report,
+        proba=probabilidad*100,
+        resultado=resul,
+>>>>>>> c3ac480a38c680c83f3974fc09704e4f8ec8a806
     )
 
 if __name__ == '__main__':

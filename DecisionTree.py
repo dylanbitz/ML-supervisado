@@ -65,36 +65,22 @@ def evaluate():
     plt.savefig(graph_path, dpi=60)
     return exactitud_modelo, reporte, cm
 
-def predict_label(age, hypertension, heart_disease, bmi, HbA1c_level, blood_glucose_level, gender, smoking_history, threshold=0.5):
+def predict_label(features:dict):
     ''''
-    función que se encarga de realizar una predicción sobre diabetes, según los parámetros pedidos
-    0 para negativo
-    1 para positivo
+    Realiza una predicción sobre el estado del estudiante usando los features de X.columns.
+    Los argumentos deben coincidir con los nombres de las columnas de X.
     '''
-    data = {
-        'age': age,
-        'hypertension': hypertension,
-        'heart_disease': heart_disease,
-        'bmi': bmi,
-        'HbA1c_level': HbA1c_level,
-        'blood_glucose_level': blood_glucose_level,
-        'gender': gender,
-        'smoking_history': smoking_history,
-    }
-    data = pd.DataFrame([data])
-    data = pd.get_dummies(data, columns=['gender', 'smoking_history'])
+    data = {col: features.get(col, 0) for col in X.columns}
+    df = pd.DataFrame([data])
     
     for col in X.columns:
-            if col not in data.columns:
+            if col not in df.columns:
                 data[col] = 0
-                
-    data = data[X.columns]
-    data = scaler.transform(data)
-    data_scaled = pd.DataFrame(data)
+
+    pred = model.predict(df)
+    prob = model.predict_proba(df)[0,1]
+    prob_legible = f"{np.max(prob) * 100:.2f}"
+    label_map = {0: "Deserción", 1: "En curso", 2: "Graduado"}
+    label = label_map.get(int(pred[0]), "Desconocido")
     
-    prediccion1 = model.predict(data_scaled)
-    prob = model.predict_proba(data_scaled)[0,1]
-    prob_legible = f"{prob * 100:.2f}"
-    label = "Sí" if prob >= threshold else "No"
-    
-    return prediccion1[0], prob_legible, label
+    return pred[0], prob_legible, label
