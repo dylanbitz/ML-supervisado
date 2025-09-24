@@ -123,14 +123,14 @@ def conceptoBasico_decTree():
 def ejercicioPractico_decTree():
     link_estilos = "../static/css/ejercicio-decTree.css"
     
-    # Evaluar el modelo y obtener métricas
+    # Ejecuta la evaluación del modelo Decision Tree
     accuracy, report, _ = DecisionTree.evaluate()
     
     return render_template(
         "ejercicio-decTree.html",
         link=link_estilos,
-        exactitud=accuracy,
-        reporte=report
+        exactitud=accuracy,  
+        reporte=report        
     )
 
 
