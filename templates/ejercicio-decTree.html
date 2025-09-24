@@ -78,6 +78,175 @@
         <h2>Matriz de Confusión</h2>
         <img src="../static/images/decTree-matrizConfu.png" alt="matriz-confusion">
         </section>
+         <!-- Formulario de Predicción -->
+         <section>
+        <h1>Predicción: ¿Cuál será el desenlace académico del estudiante?</h1>
+
+        <!-- Formulario corregido -->
+        <form method="POST" action="/decision-tree/ejercicio">
+            <!-- Variables categóricas -->
+            <label for="Marital_status">
+                <span>Estado civil</span>
+                <input type="number" id="Marital_status" name="Marital status" min="0" required>
+            </label>
+
+            <label for="Application_mode">
+                <span>Modo de aplicación</span>
+                <input type="number" id="Application_mode" name="Application mode" min="0" required>
+            </label>
+
+            <label for="Application_order">
+                <span>Orden de aplicación</span>
+                <input type="number" id="Application_order" name="Application order" min="1" required>
+            </label>
+
+            <label for="Course">
+                <span>Curso</span>
+                <input type="number" id="Course" name="Course" min="0" required>
+            </label>
+
+            <label for="evening_attendance">
+                <span>Asistencia nocturna</span>
+                <select id="evening_attendance" name="evening attendance">
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </label>
+
+            <label for="Previous_qualification">
+                <span>Calificación previa</span>
+                <input type="number" id="Previous_qualification" name="Previous qualification" min="0" required>
+            </label>
+
+            <label for="Mother_occupation">
+                <span>Ocupación de la madre</span>
+                <input type="number" id="Mother_occupation" name="Mother's occupation" min="0" required>
+            </label>
+
+            <label for="Father_occupation">
+                <span>Ocupación del padre</span>
+                <input type="number" id="Father_occupation" name="Father's occupation" min="0" required>
+            </label>
+
+            <label for="Displaced">
+                <span>Desplazado</span>
+                <select id="Displaced" name="Displaced">
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </label>
+
+            <label for="Debtor">
+                <span>¿Tiene deudas?</span>
+                <select id="Debtor" name="Debtor">
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </label>
+
+            <label for="Tuition">
+                <span>Pago de matrícula al día</span>
+                <select id="Tuition" name="Tuition fees up to date">
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </label>
+
+            <label for="Gender">
+                <span>Género</span>
+                <select id="Gender" name="Gender">
+                    <option value="0">Masculino</option>
+                    <option value="1">Femenino</option>
+                </select>
+            </label>
+
+            <label for="Scholarship">
+                <span>¿Tiene beca?</span>
+                <select id="Scholarship" name="Scholarship holder">
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </label>
+
+            <label for="Age">
+                <span>Edad al matricularse</span>
+                <input type="number" id="Age" name="Age" min="16" required>
+            </label>
+
+            <!-- Variables numéricas relacionadas con materias -->
+            <h2>Primer semestre</h2>
+            <label for="1st_credit">
+                <span>Asignaturas con crédito</span>
+                <input type="number" id="1st_credit" name="Curricular units 1st sem (credited)" min="0" required>
+            </label>
+
+            <label for="1st_enrolled">
+                <span>Asignaturas matriculadas</span>
+                <input type="number" id="1st_enrolled" name="Curricular units 1st sem (enrolled)" min="0" required>
+            </label>
+
+            <label for="1st_eval">
+                <span>Evaluaciones</span>
+                <input type="number" id="1st_eval" name="Curricular units 1st sem (evaluations)" min="0" required>
+            </label>
+
+            <label for="1st_approved">
+                <span>Aprobadas</span>
+                <input type="number" id="1st_approved" name="Curricular units 1st sem (approved)" min="0" required>
+            </label>
+
+            <label for="1st_grade">
+                <span>Promedio de notas</span>
+                <input type="number" step="0.01" id="1st_grade" name="Curricular units 1st sem (grade)" min="0" max="20" required>
+            </label>
+
+            <h2>Segundo semestre</h2>
+            <label for="2nd_credit">
+                <span>Asignaturas con crédito</span>
+                <input type="number" id="2nd_credit" name="Curricular units 2nd sem (credited)" min="0" required>
+            </label>
+
+            <label for="2nd_enrolled">
+                <span>Asignaturas matriculadas</span>
+                <input type="number" id="2nd_enrolled" name="Curricular units 2nd sem (enrolled)" min="0" required>
+            </label>
+
+            <label for="2nd_eval">
+                <span>Evaluaciones</span>
+                <input type="number" id="2nd_eval" name="Curricular units 2nd sem (evaluations)" min="0" required>
+            </label>
+
+            <label for="2nd_approved">
+                <span>Aprobadas</span>
+                <input type="number" id="2nd_approved" name="Curricular units 2nd sem (approved)" min="0" required>
+            </label>
+
+            <label for="2nd_grade">
+                <span>Promedio de notas</span>
+                <input type="number" step="0.01" id="2nd_grade" name="Curricular units 2nd sem (grade)" min="0" max="20" required>
+            </label>
+
+            <label for="2nd_without_eval">
+                <span>Sin evaluaciones</span>
+                <input type="number" id="2nd_without_eval" name="Curricular units 2nd sem (without evaluations)" min="0" required>
+            </label>
+
+            <h2>Contexto económico</h2>
+            <label for="GDP">
+                <span>Producto Interno Bruto (PIB)</span>
+                <input type="number" step="0.01" id="GDP" name="GDP" required>
+            </label>
+
+            <!-- Botón de envío -->
+            <input type="submit" value="Predecir desenlace">
+        </form>
+
+        {% if resultado %}
+            <h2>Resultado de la predicción</h2>
+            <p>Predicción: <strong>{{ resultado }}</strong></p>
+            <p>Probabilidad: <strong>{{ proba }} %</strong></p>
+        {% endif %}
+    </section>
 </main>
 <footer>
     <p>Universidad de Cundinamarca | Machine Learning | Dylan Bielostozky, Mayra Caipe, Pedro Casas, Miguel González</p>
