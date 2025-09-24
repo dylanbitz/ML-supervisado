@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, request
 import DecisionTree
 import RegresionLineal
 import RegresionLogistica
-import DecisionTree
+
 
 app = Flask(__name__)
 
