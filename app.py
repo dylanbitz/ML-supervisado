@@ -133,7 +133,7 @@ def ejercicioPractico_decTree():
         link=link_estilos,
         exactitud=accuracy,
         reporte=report,
-        proba=probabilidad*100,
+        proba=round(probabilidad*100,4),
         resultado=resul,
     )
 

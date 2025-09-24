@@ -1,5 +1,4 @@
 import os
-import numpy as np
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
@@ -26,12 +25,13 @@ datos_estudiantes_process = datos_estudiantes_process.drop(columns=[
     'International', 
     'Curricular units 1st sem (without evaluations)',
     'Unemployment rate', 
-    'Inflation rate'
+    'Inflation rate',
+    'Course'
 ], axis=1)
 X = datos_estudiantes_process.drop("Output", axis=1)
 y = datos_estudiantes_process['Output']
 
-colums_catg = ["Course", "Application mode", "Marital status",
+colums_catg = ["Application mode", "Marital status",
                     "Mother's occupation", "Father's occupation"]
 
 preprocessor = ColumnTransformer(
@@ -42,7 +42,7 @@ preprocessor = ColumnTransformer(
 )
 model = Pipeline(steps=[
     ("preprocessor", preprocessor),
-    ("classifier", DecisionTreeClassifier(max_depth=15,random_state=0))
+    ("classifier", DecisionTreeClassifier(max_depth=12,random_state=0))
 ])
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -79,8 +79,7 @@ def predict_label(features:dict):
 
     pred = model.predict(df)
     prob = model.predict_proba(df)[0,1]
-    prob_legible = f"{np.max(prob) * 100:.2f}"
-    label_map = {0: "Deserción", 1: "En curso", 2: "Graduado"}
+    label_map = {0: "Deserción", 1: "Seguirá cursando", 2: "Graduado"}
     label = label_map.get(int(pred[0]), "Desconocido")
     
-    return pred[0], prob_legible, label
+    return pred[0], prob, label
