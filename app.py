@@ -112,7 +112,7 @@ def ejercicioPractico_logistica():
     
 @app.get('/decision-tree/conceptBasic')
 def conceptoBasico_decTree():
-    link_estilos = "../static/css/conceptBasic.css"
+    link_estilos = "../static/css/conceptBasic-decTree.css"
     return render_template(
         "conceptBasic-decTree.html",
         link=link_estilos,
