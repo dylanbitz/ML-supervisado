@@ -122,12 +122,6 @@ def conceptoBasico_decTree():
 app.route('/decision-tree/ejercicio', methods=['GET', 'POST'])
 def ejercicioPractico_decTree():
     link_estilos = "../static/css/ejercicio-decTree.css"
-<<<<<<< HEAD
-    
-    # Evaluar el modelo Decision Tree
-    accuracy, report, _ = DecisionTree.evaluate()
-    
-=======
     accuracy, report, _ = DecisionTree.evaluate()
     resul = 0
     probabilidad = 0
