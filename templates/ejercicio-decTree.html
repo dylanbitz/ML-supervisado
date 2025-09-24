@@ -45,11 +45,37 @@
                 <b>permanencia</b> en la institución educativa.
                 </p>
     </section>
-    <section>
-        <h1>Evaluación del modelo</h1>
-  
-    </section>
+        <section>
+        <h1>Evaluación del modelo Decision Tree</h1>
+        <p>{{ exactitud }}</p>
 
+        <h2>Reporte de Clasificación</h2>
+        <table border="1" cellpadding="6" cellspacing="0">
+            <tr>
+                <th>Clase</th>
+                <th>Precisión</th>
+                <th>Recall</th>
+                <th>F1-Score</th>
+                <th>Support</th>
+            </tr>
+            {% for clase, valores in reporte.items() %}
+            {% if valores is mapping %}
+            <tr>
+                <td>{{ clase }}</td>
+                <td>{{ "%.2f"|format(valores.get("precision", "")) }}</td>
+                <td>{{ "%.2f"|format(valores.get("recall", "")) }}</td>
+                <td>{{ "%.2f"|format(valores.get("f1-score", "")) }}</td>
+                <td>{{ valores.get("support", "")|int }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td>{{ clase }}</td>
+                <td colspan="4">{{ "%.2f"|format(valores) }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+    </section>
 </main>
 <footer>
     <p>Universidad de Cundinamarca | Machine Learning | Dylan Bielostozky, Mayra Caipe, Pedro Casas, Miguel González</p>
